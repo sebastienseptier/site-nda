@@ -1,27 +1,63 @@
-# SiteNda
+# Réseau-NDA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+This is an application using the components needed for a single-page application using MEAN stack. MEAN is a combination of MongoDB, ExpressJS, AngularJS and Node.js.
+It provides a robust, flexible and scalable full-stack javascript solution.
 
-## Development server
+## Development technologies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* [Node.js](https://nodejs.org/en/)
+* [Angular5](https://angular.io/)
+* [MongoDB](https://www.mongodb.com)
+* [Express](https://expressjs.com/)
+* [Git](https://git-scm.com/downloads)
+* npm 3.x
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Install all dependencies in package.json file. This can be done by navigating to the root directory in the command line interface and running the following command:
+```
+$ npm install
+```
+- Next, install all of the Angular development dependencies in package.json file:
+```
+$ cd frontend/
+$ npm install
+```
+- Installation is complete. Navigate to the root directory and then:  
 
-## Build
+## Production
+-- In root directory:
+```
+$ npm run build
+$ npm start
+```
+-- Access production server at: http://localhost:8080
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Development
+```
+$ cd frontend/
+$ ng serve
+```
+-- In another window, from root directory run:
+```
+$ nodemon
+```
+-- Access development server at: http://localhost:4200
 
-## Running unit tests
+-- Access API at: http://localhost:8080
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usefull commands
 
-## Running end-to-end tests
+* Start MongoDB: ./mongod.exe --dbpath "C:\MongoDB\data\db"
+* Commit history: git log --oneline
+* Delete a remote commit: git push origin +da1448e^:master
+* Delete a local commit: git reset --soft HEAD~1
+* More : https://gist.github.com/aquelito/8596717
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Contributors
 
-## Further help
+Sébastien Septier & Vincent Reynaert.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+
+No license.
