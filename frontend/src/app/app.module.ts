@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormAuthentificationComponent } from './components/forms/form-authentification/form-authentification.component';
 import { FormInscriptionComponent } from './components/forms/form-inscription/form-inscription.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostsComponent } from './components/posts/posts.component';
 
 @NgModule({
   	declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     	FooterComponent,
     	HomeComponent,
     	FormAuthentificationComponent,
-    	FormInscriptionComponent
+    	FormInscriptionComponent,
+    	PostsComponent
   	],
 	imports: [
 		BrowserModule,

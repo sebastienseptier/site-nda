@@ -1,0 +1,78 @@
+<div class="container">
+	<h2>Ce qu'il se dit en ce moment</h2>
+	<p>Vous pouvez retrouver ici les derniers posts rédigés par les membres du réseau. Vous pouvez utiliser les tags sur le panneau droit pour filtrer le contenu par mots clés.</p>
+	<h6><span *ngFor="let tag of tags"> #{{ tag }}</span></h6>
+</div>
+<main class="main pt-4" role="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				<article class="card mb-4">
+					<header class="card-header">
+						<div class="card-meta">
+							<a href="#"><time class="timeago" datetime="2017-10-26 20:00" data-tid="2">Il y a 8 mois</time></a> dans <a routerLink="../posts/voyage">Voyage</a>
+						</div>
+						<a href="">
+							<h4 class="card-title">Quoi de neuf à Notre-Dame-des-Anges?</h4>
+							<img class="img-fluid d-block mx-auto" src="../../../assets/photo_entry.jpg" alt="">
+						</a>
+					</header>
+					<div class="card-body">
+						<p class="card-text">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. </p>
+					</div>
+				</article><!--TODO:générer dynamiquement ce format de carte à partir de la BDD-->
+				<article class="card mb-4">
+					<header class="card-header">
+						<div class="card-meta">
+							<a href="#"><time class="timeago" datetime="2018-03-26 14:00" data-tid="2">Il y a 4 mois</time></a> dans <a routerLink="../posts/voyage">Voyage</a>
+						</div>
+						<a href="">
+							<h4 class="card-title">De nouveaux évenements à venir!</h4>
+							<img class="img-fluid d-block mx-auto" src="../../../assets/photo_entry.jpg" alt="">
+						</a>
+					</header>
+					<div class="card-body">
+						<p class="card-text">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. </p>
+					</div>
+				</article>
+			</div>
+			<div class="col-md-3 ml-auto">
+				<aside class="sidebar">
+					<div class="card mb-4">
+						<div class="card-body">
+							<h4 class="card-title">À propos</h4>
+							<p class="card-text">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. </p>
+						</div>
+					</div>
+				</aside>
+				<aside class="sidebar sidebar-sticky">
+					<div class="card mb-4">
+						<div class="card-body">
+							<h4 class="card-title">Tags</h4>
+							<input type="button" value="Voyage" id="tagVoyage" class="btn btn-light btn-sm mb-1" (click)="toggleTag($event.target.value);">
+							<input type="button" value="Travail" id="tagTravail" class="btn btn-light btn-sm mb-1" (click)="toggleTag($event.target.value);">
+							<input type="button" value="Collège" id="tagCollege" class="btn btn-light btn-sm mb-1" (click)="toggleTag($event.target.value);">
+							<input type="button" value="Photographie" id="tagPhotographie" class="btn btn-light btn-sm mb-1" (click)="toggleTag($event.target.value);">
+							<input type="button" value="Lyçée" id="tagLycee" class="btn btn-light btn-sm mb-1" (click)="toggleTag($event.target.value);">
+						</div>
+					</div>
+					<div class="card mb-4">
+						<div class="card-body">
+							<h4 class="card-title">Le plus lus</h4>
+							<a href="#" class="d-inline-block">
+								<h4 class="h6">Les salles de technos modernisées</h4>
+								<img class="card-img" src="../../../assets/photo_entry.jpg" alt="">
+							</a>
+							<time class="timeago" datetime="2018-07-03 20:00" data-tid="6">Il y a 1 semaine</time> dans Collège
+							<a href="#" class="d-inline-block mt-3">
+                				<h4 class="h6">Le CDI, que fait son succès?</h4>
+								<img class="card-img" src="../../../assets/photo_entry.jpg" alt="">
+							</a>
+							<time class="timeago" datetime="2018-07-03 20:00" data-tid="6">Il y a 1 semaine</time> dans Collège
+						</div>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</div>
+</main>
