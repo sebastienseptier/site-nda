@@ -1,0 +1,8 @@
+<h4>Commentaires</h4>
+<app-comment *ngFor="let comment of comments"
+	[comment]="comment"></app-comment>
+<div class="mt-5">
+	<h5>Ajoutez un commentaire</h5>
+	<textarea class="form-control mt-3" rows="3" placeholder="Entrez votre commentaire ici"></textarea>
+	<a routerLink="../../posts" class="btn btn-success mt-3">Publier</a>
+</div>

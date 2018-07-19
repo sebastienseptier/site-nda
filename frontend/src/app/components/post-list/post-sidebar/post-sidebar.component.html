@@ -1,0 +1,33 @@
+<aside class="sidebar">
+	<nav class="nav nav-pills nav-fill">
+		<a class="nav-item nav-link active" routerLink="../nouveau-post">Ajouter un post</a>
+	</nav>
+</aside>
+<aside class="sidebar">
+    <div class="card mb-4">
+      	<div class="card-body">
+        	<h4 class="card-title">À propos</h4>
+        	<p class="card-text">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+      	</div>
+    </div>
+</aside>
+<aside class="sidebar sidebar-sticky">
+	<div class="card mb-4">
+		<div class="card-body">
+			<h4 class="card-title">Tags</h4>
+			<input *ngFor="let tag of tags" type="button" value="{{ tag }}" id="tag{{ tag | uppercase }}" class="btn btn-light btn-sm mb-1" (click)="toggleTag($event.target.value);">
+		</div>
+	</div>
+	<div class="card mb-4">
+		<div class="card-body">
+			<h4 class="card-title">Le plus lus</h4>
+			<article class="mb-4" *ngFor="let post of posts">
+				<a routerLink="./{{ post.id }}">
+					<h6 class="h6">{{ post.title }}</h6>
+					<img class="card-img" src="{{ post.coverPictureLink }}" alt="{{ post.title }}">
+				</a>
+				<small class="form-text text-muted">Le {{ post.date }} dans {{ post.tag }}</small>
+			</article>	
+		</div>
+	</div>
+</aside>

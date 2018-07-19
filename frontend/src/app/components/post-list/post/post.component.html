@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<h3 class="card-title">#{{ post.id }} : {{ post.title }}</h3>
+			<div class="row">
+				<div class="col">
+					<a routerLink="../../utilisateurs/{{ post.author }}">{{ post.author }}</a>, <span>le {{ post.date }} dans #{{ post.tag }}</span>
+				</div>
+				<div class="col text-right">
+					<a routerLink="/posts">Retour aux posts.</a>
+				</div>
+			</div>
+			<hr>
+			<article class="card mb-4">
+				<img class="card-img" src="{{ post.coverPictureLink }}" alt="">
+				<div class="card-body">
+					<p>{{ post.content }}</p>
+					<hr>
+					<app-comment-list [postId]="post.id"></app-comment-list>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
