@@ -18,6 +18,7 @@ import { CommentComponent } from './components/post-list/post/comment-list/comme
 import { PostListService } from './services/post-list.service';
 import { CommentListService } from './services/comment-list.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { PaginationService } from './services/pagination.service';
 
 @NgModule({
   	declarations: [
@@ -40,7 +41,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 		AppRoutingModule,
 		HttpClientModule
   	],
-  		providers: [CommentListService, PostListService],
+  		providers: [CommentListService, PostListService, PaginationService],
   		bootstrap: [AppComponent]
 })
 export class AppModule {}

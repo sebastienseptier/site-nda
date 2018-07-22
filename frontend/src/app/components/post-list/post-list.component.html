@@ -5,8 +5,9 @@
 </div>
 <div class="container">
 	<div class="row">
+		<!--contenu-->
 		<div class="col-md-9">
-			<article class="card mb-4" *ngFor="let post of posts">
+			<article class="card mb-4" *ngFor="let post of pagedPosts">
 				<header class="card-header">
 					<div class="card-meta">
 						<a routerLink="../utilisateurs/{{ post.author }}">{{ post.author }}</a>, <span>le {{ post.date }}</span> dans <a routerLink="./{{ post.tag }}">#{{ post.tag }}</a>
@@ -21,8 +22,29 @@
 				</div>
 			</article>
 		</div>
+		<!--sidebar-->
 		<div class="col-md-3 ml-auto">
 			<app-post-sidebar></app-post-sidebar>
 		</div>
 	</div>
+	<!--pagination-->
+	<nav aria-label="...">
+		<ul *ngIf="pagination.pages && pagination.pages.length" class="pagination">
+			<li [ngClass]="{disabled:pagination.currentPage === 1}" class="page-item">
+				<a class="page-link" (click)="setPage(1)">First</a>
+			</li>
+			<li [ngClass]="{disabled:pagination.currentPage === 1}" class="page-item">
+				<a class="page-link" (click)="setPage(pagination.currentPage - 1)">Previous</a>
+			</li>
+			<li *ngFor="let page of pagination.pages" [ngClass]="{active:pagination.currentPage === page}" class="page-item">
+				<a class="page-link" (click)="setPage(page)">{{page}}</a>
+			</li>
+			<li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}" class="page-item">
+				<a class="page-link" (click)="setPage(pagination.currentPage + 1)">Next</a>
+			</li>
+			<li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}" class="page-item">
+				<a class="page-link" (click)="setPage(pagination.totalPages)">Last</a>
+			</li>
+		</ul>
+	</nav>
 </div>
