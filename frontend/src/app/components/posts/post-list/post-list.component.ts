@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PostListService } from '../../services/post-list.service';
-import { Post } from '../../models/post';
-import { PaginationService } from '../../services/pagination.service';
+import { Post } from '../../../models/post';
+import { PostListService } from '../../../services/post-list.service';
+import { PaginationService } from '../../../services/pagination.service';
 
 @Component({
-	selector: 'app-posts',
+	selector: 'app-post-list',
 	templateUrl: './post-list.component.html',
 	styleUrls: ['./post-list.component.css']
 })

@@ -1,0 +1,28 @@
+.nav-tabs .nav-item .nav-link.active {
+    border-color: #4582EC;
+}
+
+.nav-tabs .nav-item .nav-link {
+    padding: 0.75rem;
+    transition: color .35s ease, border-color .35s ease;
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #4582EC;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link {
+    border: 0 solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-left-color: transparent;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}

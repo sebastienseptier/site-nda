@@ -1,77 +1,65 @@
-<!-- Formulaire d'inscription -->
-<div class="container">
-	<form>
-		<h3>S'inscrire</h3>
-		<hr>
-		<div class="form-group col-md-6">
-			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="radio" name="inputGender" id="inputGenderMale" checked>
-				<label class="form-check-label" for="inputGenderMale">Homme</label>
-			</div>
-			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="radio" name="inputGender" id="inputGenderFemale">
-				<label class="form-check-label" for="inputGenderFemale">Femme</label>
-			</div>
-		</div>
-		<div class="form-row col-md-6">
-			<div class="form-group">
-				<label for="inputLastName">Nom</label>
-				<input type="text" class="form-control" id="inputLastName" placeholder="Nom">
-			</div>
-			<div class="form-group">
-				<label for="inputFirstName">Prénom</label>
-				<input type="text" class="form-control" id="inputFirstName" placeholder="Prénom">
-			</div>
-		</div>
-		<div class="form-row col-md-6">
-			<div class="form-group">
-				<label for="inputState">Département</label>
-				<!--TODO:Remplir le bouton des villes en fonction de la région sélectionnée-->
-				<select id="inputState" class="form-control">
-					<option selected>Nord</option>
-					<option>Pas-De-Calais</option>
-					<option>...</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="inputCity">Ville</label>
-				<select id="inputCity" class="form-control">
-					<option selected>Lille</option>
-					<option>St-Amand-les-Eaux</option>
-					<option>...</option>
-				</select>
-			</div>
-		</div>
-		<div class="form-group col-md-6">
-			<label for="inputBirthdate">Date de naissance</label>
-			<input type="date" class="form-control" id="inputBirthdate" placeholder="jj/mm/aaaa">
-		</div>
-		<div class="form-group col-md-6">
-			<label for="promotionSelect">Promotion</label>
-			<!--TODO:Remplir dynamiquement les dates de promotion-->
-			<select class="form-control" id="promotionSelect">
-				<option>2013</option>
-				<option>2014</option>
-				<option>2015</option>
-				<option>2016</option>
-				<option>2017</option>
-			</select>
-		</div>
-		<div class="form-group col-md-6">
-			<label for="emailInput">Adresse email</label>
-			<input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Adresse email">
-		</div>
-		<div class="form-group col-md-6">
-			<label for="passwordInput">Mot de passe</label>
-			<input type="password" class="form-control" id="passwordInput" placeholder="Mot de passe">
-			<small id="passwordHelpBlock" class="form-text text-muted">
-					Votre mot de passe doit avoir au moins 8 caractères, et contenir au moins 1 chiffre et 1 majuscule.
-			</small>
-		</div>
-		<hr>
-		<button type="submit" class="btn btn-primary">S'inscrire</button>
-		<small id="signUpHelpBlock" class="form-text text-muted">
-				Déjà membre? <a routerLink="../authentification">Se connecter ici.</a>
-		</small>
-	</form>
+<div class="form-group col-md-6">
+	<div class="custom-control custom-radio">
+		<input class="custom-control-input" type="radio" name="inputGender" id="inputGenderMale" checked>
+		<label class="custom-control-label" for="inputGenderMale">Homme</label>
+	</div>
+	<div class="custom-control custom-radio">
+		<input class="custom-control-input" type="radio" name="inputGender" id="inputGenderFemale">
+		<label class="custom-control-label" for="inputGenderFemale">Femme</label>
+	</div>
+</div>
+<div class="form-row col-md-6">
+	<div class="form-group">
+		<label for="inputLastName">Nom</label>
+		<input type="text" class="form-control" id="inputLastName" placeholder="Nom">
+	</div>
+	<div class="form-group">
+		<label for="inputFirstName">Prénom</label>
+		<input type="text" class="form-control" id="inputFirstName" placeholder="Prénom">
+	</div>
+</div>
+<div class="form-row col-md-6">
+	<div class="form-group">
+		<label for="inputState">Département</label>
+		<!--TODO:Remplir le bouton des villes en fonction de la région sélectionnée-->
+		<select id="inputState" class="form-control">
+			<option selected>Nord</option>
+			<option>Pas-De-Calais</option>
+			<option>...</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="inputCity">Ville</label>
+		<select id="inputCity" class="form-control">
+			<option selected>Lille</option>
+			<option>St-Amand-les-Eaux</option>
+			<option>...</option>
+		</select>
+	</div>
+</div>
+<div class="form-group col-md-6">
+	<label for="inputBirthdate">Date de naissance</label>
+	<input type="date" class="form-control" id="inputBirthdate" placeholder="jj/mm/aaaa">
+</div>
+<div class="form-group col-md-6">
+	<label for="promotionSelect">Promotion</label>
+	<!--TODO:Remplir dynamiquement les dates de promotion-->
+	<select class="form-control" id="promotionSelect">
+		<option>2013</option>
+		<option>2014</option>
+		<option>2015</option>
+		<option>2016</option>
+		<option>2017</option>
+	</select>
+</div>
+<div class="form-group col-md-6">
+	<label for="emailInput">Adresse email</label>
+	<input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Adresse email">
+</div>
+<div class="form-group col-md-6">
+	<label for="passwordInput">Mot de passe</label>
+	<input type="password" class="form-control" id="passwordInput" placeholder="Mot de passe">
+	<small id="passwordHelpBlock" class="form-text text-muted">
+			Votre mot de passe doit avoir au moins 8 caractères, et contenir au moins 1 chiffre et 1 majuscule.
+	</small>
 </div>
