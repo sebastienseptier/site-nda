@@ -9,6 +9,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { UserComponent } from './components/user-list/user/user.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
+import { AboutComponent } from './components/about/about.component';
 
 const appRoutes: Routes = [
 	{ path: 'authentification', component: FormAuthentificationComponent},
@@ -17,8 +18,9 @@ const appRoutes: Routes = [
 	{ path: 'posts/:id', component: PostComponent},
 	{ path: 'nouveau-post', component: FormPostComponent},
 	{ path: 'utilisateurs', component: UserListComponent},
-	{ path: 'utilisateurs/:name', component: UserComponent},
+	{ path: 'utilisateurs/:id', component: UserComponent},
 	{ path: 'communaute', component: UserListComponent},
+	{ path: 'apropos', component: AboutComponent},
 	{ path: 'pageIntrouvee', component: NotFoundComponent},
 	{ path: '', component: HomeComponent },
 	{ path: '**', component: NotFoundComponent }

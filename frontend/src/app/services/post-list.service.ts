@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from '../../../node_modules/rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import { Post } from '../models/post';
-import { Router } from '../../../node_modules/@angular/router';
+import { Router } from '@angular/router';
 
 
 @Injectable()
@@ -11,7 +11,25 @@ export class PostListService {
   	posts = [
 		{ 	id: 1,
 			title: 'First post',
-			author: 'Romain',
+			author: { 	id: 6,
+				location: { id: 1, town: 'Lille', province: 'Nord', country: 'France'},
+				group: { id: 1, groupName: 'Promotion-2013', groupDescription: 'Les anciens de 2013!', nbMembers: 25},
+				grade: { id: 1, gradeName: 'Membre', gradeDescription: 'Membre du réseau NDA'},
+				email: 'julie.dutronc@gmail.com',
+				password: 'toto',
+				name: 'Julie',
+				surname: 'Dutronc',
+				registrationDate: '2018-07-01',
+				lastConnection: '2018-07-01',
+				isConnected: true,
+				profilPicture: '/assets/user.png',
+				description: 'Description de Romain Dupont. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
+				changePassword: false,
+				lockout: false,
+				attempts: 1,
+				birthDate: '1992-02-15',
+				promotion: 2002
+			},
 			content: 'Content for the first post. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.',
 			date: '04/07/18',
 			coverPictureLink: '../../../assets/photo_entry.jpg',
@@ -19,7 +37,25 @@ export class PostListService {
 		},
 		{ 	id: 2,
 			title: 'Second post',
-			author: 'Vincent',
+			author: { 	id: 8,
+				location: { id: 1, town: 'Lille', province: 'Nord', country: 'France'},
+				group: { id: 1, groupName: 'Promotion-2013', groupDescription: 'Les anciens de 2013!', nbMembers: 25},
+				grade: { id: 1, gradeName: 'Membre', gradeDescription: 'Membre du réseau NDA'},
+				email: 'christopher.alys@gmail.com',
+				password: 'titi',
+				name: 'Christopher',
+				surname: 'Alys',
+				registrationDate: '2017-07-21',
+				lastConnection: '2018-04-20',
+				isConnected: true,
+				profilPicture: '/assets/user.png',
+				description: 'Description de Manon Dumont. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
+				changePassword: false,
+				lockout: false,
+				attempts: 1,
+				birthDate: '1992-02-14',
+				promotion: 2012
+			},
 			content: 'Content for the second post. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.',
 			date: '08/07/18',
 			coverPictureLink: '../../../assets/photo_entry.jpg',
@@ -27,7 +63,25 @@ export class PostListService {
 		},
 		{ 	id: 3,
 			title: 'Third post',
-			author: 'Seb',
+			author: { 	id: 5,
+				location: { id: 1, town: 'Lomme', province: 'Nord', country: 'France'},
+				group: { id: 1, groupName: 'Promotion-2013', groupDescription: 'Les anciens de 2013!', nbMembers: 25},
+				grade: { id: 2, gradeName: 'Administrateur', gradeDescription: 'Administrateur du réseau NDA'},
+				email: 'celine.duont@gmail.com',
+				password: 'toto',
+				name: 'Céline',
+				surname: 'Duont',
+				registrationDate: '2018-07-01',
+				lastConnection: '2018-07-01',
+				isConnected: true,
+				profilPicture: '/assets/user.png',
+				description: 'Description de Céline Duont. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
+				changePassword: false,
+				lockout: false,
+				attempts: 1,
+				birthDate: '1992-04-26',
+				promotion: 2017
+			},
 			content: 'Content for the third post. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.',
 			date: '09/07/18',
 			coverPictureLink: '../../../assets/photo_entry.jpg',
@@ -35,7 +89,25 @@ export class PostListService {
 		},
 		{ 	id: 4,
 			title: 'Fourth post',
-			author: 'Pierre',
+			author: { 	id: 1,
+				location: { id: 1, town: 'Lille', province: 'Nord', country: 'France'},
+				group: { id: 1, groupName: 'Promotion-2013', groupDescription: 'Les anciens de 2013!', nbMembers: 25},
+				grade: { id: 1, gradeName: 'Membre', gradeDescription: 'Membre du réseau NDA'},
+				email: 'romain.dupont@gmail.com',
+				password: 'toto',
+				name: 'Romain',
+				surname: 'Dupont',
+				registrationDate: '2018-07-01',
+				lastConnection: '2018-07-01',
+				isConnected: true,
+				profilPicture: '/assets/user.png',
+				description: 'Description de Romain Dupont. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
+				changePassword: false,
+				lockout: false,
+				attempts: 1,
+				birthDate: '1992-01-05',
+				promotion: 2004
+			},
 			content: 'Content for the fourth post. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.',
 			date: '04/07/18',
 			coverPictureLink: '../../../assets/photo_entry.jpg',
@@ -43,7 +115,25 @@ export class PostListService {
 		},
 		{ 	id: 5,
 			title: 'Fifth post',
-			author: 'Manon',
+			author: { 	id: 7,
+				location: { id: 1, town: 'Lille', province: 'Nord', country: 'France'},
+				group: { id: 1, groupName: 'Promotion-2010', groupDescription: 'Les anciens de 2010!', nbMembers: 15},
+				grade: { id: 1, gradeName: 'Membre', gradeDescription: 'Membre du réseau NDA'},
+				email: 'alexandre.rie@gmail.com',
+				password: 'tata',
+				name: 'Alexandre',
+				surname: 'Rie',
+				registrationDate: '2018-07-01',
+				lastConnection: '2018-07-01',
+				isConnected: true,
+				profilPicture: '/assets/user.png',
+				description: 'Description de Victor Durand. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
+				changePassword: false,
+				lockout: false,
+				attempts: 1,
+				birthDate: '1985-02-12',
+				promotion: 2000
+			},
 			content: 'Content for the fith post. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.',
 			date: '12/07/18',
 			coverPictureLink: '../../../assets/photo_entry.jpg',
@@ -53,7 +143,7 @@ export class PostListService {
 
 	tags = ['Voyage', 'Travail', 'Collège', 'Photographie', 'Lyçée'];
 
-  	constructor(private router: Router) { }
+  	constructor() { }
 
   	getPostList():Post[] {
     	return this.posts;
@@ -68,7 +158,7 @@ export class PostListService {
 		return this.posts.slice(1, 3);
 	}
 	
-	getPostByNum(id: number):Post {
+	getPostById(id: number):Post {
 		const post = this.posts.find(
 			(p) => {
 				return p.id == id;

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { UserListService } from './services/user-list.service';
 import { UserSidebarComponent } from './components/user-list/user-sidebar/user-sidebar.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   	declarations: [
@@ -45,13 +47,15 @@ import { InscriptionComponent } from './components/inscription/inscription.compo
     	UserListComponent,
     	UserSidebarComponent,
     	PostsComponent,
-    	InscriptionComponent
+    	InscriptionComponent,
+    	AboutComponent
   	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		HttpClientModule
-  	],
+		HttpClientModule,
+		FormsModule
+	  ],
   		providers: [CommentListService, PostListService, PaginationService, UserListService],
   		bootstrap: [AppComponent]
 })

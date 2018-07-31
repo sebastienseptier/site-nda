@@ -1,8 +1,8 @@
 <div class="media mb-3">
 	<div class="text-center">
-		<a routerLink="../../utilisateurs/{{ comment.author }}">
-			<img class="mr-3 profil-pic" src="{{ comment.profilPictureLink }}" alt="{{ comment.author }}">
-			<h6 class="mt-1 mb-0 mr-3">{{ comment.author }}</h6>
+		<a routerLink="../../utilisateurs/{{ comment.author.id }}">
+			<img class="mr-3 profil-pic" src="{{ comment.author.profilPicture }}" alt="{{ comment.author.name }} {{ comment.author.surname }}">
+			<h6 class="mt-1 mb-0 mr-3">{{ comment.author.name }} {{ comment.author.surname }}</h6>
 		</a>
 	</div>
 	<div class="media-body">

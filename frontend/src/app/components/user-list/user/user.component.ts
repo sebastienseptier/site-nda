@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../../models/user';
+import { UserListService } from '../../../services/user-list.service';
+import { ActivatedRoute, Router } from '../../../../../node_modules/@angular/router';
 
 @Component({
 	selector: 'app-user',
@@ -7,7 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-	constructor() { }
+	private user: User;
+	private requestedId: number;
+	
+	constructor(private userListService: UserListService, private activatedRoute: ActivatedRoute, private router: Router) {
+		this.requestedId = this.activatedRoute.snapshot.params['id'];
+		this.user = this.userListService.getUserById(this.requestedId);
+		
+		//Redirecion si le post n'a pu être trouvé.
+		if (this.user == undefined)
+			this.router.navigate(['/pageIntrouvee']);
+	}
 
 	ngOnInit() {
 	}

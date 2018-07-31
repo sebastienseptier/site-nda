@@ -1,15 +1,16 @@
 <div class="container">
 	<!--Head-->
 	<div class="media">
-		<img class="" src="/assets/user.png" alt="">
+		<img class="" src="{{ user.profilPicture }}" alt="">
 		<div class="media-body ml-3">
-			<h1 class="mb-0">Romain Dupont</h1>
-			<p class="lead">Professeur de Physique-Chimie</p>
+			<h1 class="mb-0">{{ user.name }} {{ user.surname }}</h1>
+			<span class="lead badge" [ngClass]="{'badge-warning': user.grade.id==3, 'badge-danger': user.grade.id==2, 'badge-success': user.grade.id==1}" title="{{ user.grade.description }}">{{ user.grade.name }}</span>
+			<p class="lead">{{ user.location.town }}, {{ user.location.province }}, {{ user.location.country }}</p>
 		</div>
 	</div>
 	<hr>
 	<!--Body-->
-	<p>Description de Romain Dupont. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+	<p>{{ user.description }}.</p>
 	<div class="row">
 		<!--colonne droite-->
 		<div class="col-md-4 order-md-2 mb-4">
@@ -33,7 +34,7 @@
 				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 					<!--First item content-->
 					<form>
-						<app-form-inscription></app-form-inscription>
+						<app-form-inscription [user]="user"></app-form-inscription>
 						<div class="form-group">
 							<button class="btn btn-primary" type="submit" disabled="">Enregistrer les modifications</button>
 						</div>

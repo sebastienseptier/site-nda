@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostListService } from '../../../../services/post-list.service';
-import { ActivatedRoute, Router } from '../../../../../../node_modules/@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../../../../models/post';
 
 @Component({
@@ -15,7 +15,7 @@ export class PostComponent implements OnInit {
 	
 	constructor(private postListService: PostListService, private activatedRoute: ActivatedRoute, private router: Router) {
 		this.requestedId = this.activatedRoute.snapshot.params['id'];
-		this.post = this.postListService.getPostByNum(this.requestedId);
+		this.post = this.postListService.getPostById(this.requestedId);
 		
 		//Redirecion si le post n'a pu être trouvé.
 		if (this.post == undefined)
