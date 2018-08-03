@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '../../node_modules/@angular/router';
 
 @Component({
 	selector: 'app-root',
@@ -7,7 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   	title = 'app';
-  
-	constructor() {
+	constructor(private router: Router) { }
+
+	ngOnInit() {
+		//Permet de scroll jusqu'en haut lors d'un changement de page.
+		this.router.events.subscribe((evt) => {
+			if (!(evt instanceof NavigationEnd)) {
+				return;
+			}
+			window.scrollTo(0, 0)
+		});
 	}
 }

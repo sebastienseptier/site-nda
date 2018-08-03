@@ -1,17 +1,19 @@
-<div class="container">
-	<h2>Ce qu'il se dit en ce moment</h2>
-	<p>Vous pouvez retrouver ici les derniers posts rédigés par les membres du réseau. Vous pouvez utiliser les tags sur le panneau droit pour filtrer le contenu par mots clés.</p>
-	<h6><span *ngFor="let tag of tags">#{{ tag }}</span></h6>
-</div>
-<div class="container">
-	<div class="row">
-		<!--contenu-->
-		<div class="col-md-9">
-			<app-post-list></app-post-list>
-		</div>
-		<!--sidebar-->
-		<div class="col-md-3 ml-auto">
-			<app-post-sidebar></app-post-sidebar>
+<section>
+	<div class="container">
+		<h2>Ce qu'il se dit en ce moment</h2>
+		<p>Vous pouvez retrouver ici les derniers posts rédigés par les membres du réseau. Vous pouvez utiliser les tags sur le panneau droit pour filtrer le contenu par mots clés.</p>
+		<h6><span *ngFor="let tag of tags">#{{ tag }}</span></h6>
+	</div>
+	<div class="container">
+		<div class="row">
+			<!--contenu-->
+			<div class="col-md-9">
+				<app-post-list></app-post-list>
+			</div>
+			<!--sidebar-->
+			<div class="col-md-3 ml-auto">
+				<app-post-sidebar></app-post-sidebar>
+			</div>
 		</div>
 	</div>
-</div>
+</section>

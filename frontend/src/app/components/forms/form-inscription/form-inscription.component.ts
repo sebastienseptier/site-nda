@@ -10,6 +10,7 @@ import { UserListService } from '../../../services/user-list.service';
 export class FormInscriptionComponent implements OnInit {
 
 	@Input() user: User;
+	private isFemale = false;
 
 	//Données temporaires permettant de tester le formulaire.
 	promotions = [
@@ -52,17 +53,20 @@ export class FormInscriptionComponent implements OnInit {
 		{ id: 3, name: 'Pas de Calais'}
 	];
 
-	constructor() {
+	constructor() {}
+
+	ngOnInit() {
 		//On définit un nouvel utilisateur s'il le component est utilisé depuis la page d'inscription.
 		if (this.user == undefined) {
 			this.user = { 
-				id: 1, location: { id: 1, town: 'Lille', province: 'Nord', country: 'France'}, group: { id: 1, groupName: '', groupDescription: '', nbMembers: 0}, grade: { id: 1, gradeName: '', gradeDescription: ''}, email: '', password: '', name: '',
+				id: 1, location: { id: 1, town: 'Lille', province: 'Nord', country: 'France'}, group: { id: 1, groupName: '', groupDescription: '', nbMembers: 0}, grade: { id: 1, gradeName: '', gradeDescription: ''}, email: '', password: '', gender: 'male', name: '',
 				surname: '', registrationDate: '', lastConnection: '', isConnected: false, profilPicture: '',
 				description: '', changePassword: false, lockout: false, attempts: 0, birthDate: '', promotion: 2000
 			}
-		} 
+		}
+		else {
+			this.isFemale = this.user.gender == 'female';
+		}
 	}
-
-	ngOnInit() {}
 
 }

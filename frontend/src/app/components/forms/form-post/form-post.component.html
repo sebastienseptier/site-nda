@@ -1,27 +1,29 @@
-<div class="container">
-	<h2>Publier un post</h2>
-	<small class="form-text text-muted">Note: Votre post sera visible par les autres membres lorsqu'il sera validé par un modérateur.</small>
-	<hr>
-	<form>
-		<div class="col-12 col-md-8">
-			<div class="form-group">
-				<label for="inputPostTitle">Titre</label>
-				<input type="text" class="form-control" id="inputPostTitle" placeholder="Titre">
-			</div>
-			<div class="form-group">
-				<label for="inputTag">Selectionnez un tag</label>
-				<select id="inputTag" class="form-control">
-					<option selected>Voyage</option>
-					<option>Travail</option>
-					<option>...</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="inputContent">Contenu</label>
-				<textarea id="inputContent" class="form-control" rows="6" placeholder="Rédigez votre post ici"></textarea>
-			</div>
-		</div>
+<section>
+	<div class="container">
+		<h2>Publier un post</h2>
+		<small class="form-text text-muted">Note: Votre post sera visible par les autres membres lorsqu'il sera validé par un modérateur.</small>
 		<hr>
-		<a routerLink="../posts" class="btn btn-success mt-3">Publier</a>
-	</form>
-</div>
+		<form>
+			<div class="col-12 col-md-8">
+				<div class="form-group">
+					<label for="inputPostTitle">Titre</label>
+					<input type="text" class="form-control" id="inputPostTitle" placeholder="Titre">
+				</div>
+				<div class="form-group">
+					<label for="inputTag">Selectionnez un tag</label>
+					<select id="inputTag" class="form-control">
+						<option selected>Voyage</option>
+						<option>Travail</option>
+						<option>...</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="inputContent">Contenu</label>
+					<textarea id="inputContent" class="form-control" rows="6" placeholder="Rédigez votre post ici"></textarea>
+				</div>
+			</div>
+			<hr>
+			<a routerLink="../posts" class="btn btn-success mt-3">Publier</a>
+		</form>
+	</div>
+</section>

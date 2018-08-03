@@ -9,6 +9,7 @@ export interface User {
 	grade: Grade;
 	email: String;
 	password: String;
+	gender: String;
 	name: String;
 	surname: String;
 	registrationDate: String;

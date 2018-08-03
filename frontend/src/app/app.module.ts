@@ -20,13 +20,15 @@ import { PostListService } from './services/post-list.service';
 import { CommentListService } from './services/comment-list.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PaginationService } from './services/pagination.service';
-import { UserComponent } from './components/user-list/user/user.component';
-import { UserListComponent } from './components/user-list/user-list.component';
+import { UserComponent } from './components/users/user-list/user/user.component';
+import { UserListComponent } from './components/users/user-list/user-list.component';
 import { UserListService } from './services/user-list.service';
-import { UserSidebarComponent } from './components/user-list/user-sidebar/user-sidebar.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { AboutComponent } from './components/about/about.component';
+import { AdministrationComponent } from './components/administration/administration.component';
+import { StatsComponent } from './components/administration/stats/stats.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   	declarations: [
@@ -45,10 +47,12 @@ import { AboutComponent } from './components/about/about.component';
     	NotFoundComponent,
     	UserComponent,
     	UserListComponent,
-    	UserSidebarComponent,
     	PostsComponent,
     	InscriptionComponent,
-    	AboutComponent
+    	AboutComponent,
+    	AdministrationComponent,
+    	StatsComponent,
+    	UsersComponent
   	],
 	imports: [
 		BrowserModule,

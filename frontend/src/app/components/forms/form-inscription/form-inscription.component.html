@@ -1,11 +1,23 @@
 <div class="form-row col-md-6">
 	<div class="form-group">
-		<label for="inputLastName">Nom</label>
-		<input type="text" class="form-control" id="inputLastName" placeholder="Nom" [(ngModel)]="user.name">
+		<div class="custom-control custom-radio">
+			<input id="male-input" name="gender" [(ngModel)]="isFemale" [value]="false" class="custom-control-input" type="radio" checked="{{ !isFemale }}">
+			<label class="custom-control-label" for="male-input">M.</label>
+		</div>
+		<div class="custom-control custom-radio">
+			<input id="female-input" name="gender" [(ngModel)]="isFemale" [value]="true" class="custom-control-input" type="radio" checked="{{ isFemale }}">
+			<label class="custom-control-label" for="female-input">Mme.</label>
+		</div>
+	</div>
+</div>
+<div class="form-row col-md-6">
+	<div class="form-group">
+		<label for="inputLastName">Nom <span *ngIf="isFemale">de jeune fille</span></label>
+		<input type="text" class="form-control" id="inputLastName" placeholder="Nom" [(ngModel)]="user.surname">
 	</div>
 	<div class="form-group">
 		<label for="inputFirstName">Prénom</label>
-		<input type="text" class="form-control" id="inputFirstName" placeholder="Prénom" [(ngModel)]="user.surname">
+		<input type="text" class="form-control" id="inputFirstName" placeholder="Prénom" [(ngModel)]="user.name">
 	</div>
 </div>
 <div class="form-row col-md-6">
@@ -29,7 +41,6 @@
 </div>
 <div class="form-group col-md-6">
 	<label for="promotionSelect">Promotion</label>
-	<!--TODO:Remplir dynamiquement les dates de promotion-->
 	<select #select [(ngModel)]="user.promotion" class="form-control" id="promotionSelect">
 		<option *ngFor="let promotion of promotions" [value]="promotion.name">{{promotion.name}}</option>
 	</select>
