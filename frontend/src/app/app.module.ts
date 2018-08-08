@@ -1,34 +1,39 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
-import { FormAuthentificationComponent } from './components/forms/form-authentification/form-authentification.component';
-import { FormInscriptionComponent } from './components/forms/form-inscription/form-inscription.component';
-import { HttpClientModule } from '@angular/common/http';
-import { PostListComponent } from './components/posts/post-list/post-list.component';
-import { PostComponent } from './components/posts/post-list/post/post.component';
-import { PostSidebarComponent } from './components/posts/post-sidebar/post-sidebar.component';
-import { FormPostComponent } from './components/forms/form-post/form-post.component';
-import { CommentListComponent } from './components/comment-list/comment-list.component';
-import { CommentComponent } from './components/comment-list/comment/comment.component';
-import { PostListService } from './services/post-list.service';
-import { CommentListService } from './services/comment-list.service';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HeaderComponent } from './components/metier/header/header.component';
+import { AboutComponent } from './components/metier/about/about.component';
+import { AdministrationComponent } from './components/metier/administration/administration.component';
+import { CommentComponent } from './components/util/list-comment/comment/comment.component';
+import { ListCommentComponent } from './components/util/list-comment/list-comment.component';
+import { FooterComponent } from './components/metier/footer/footer.component';
+import { HomeComponent } from './components/metier/home/home.component';
+import { FormAuthentificationComponent } from './components/util/form-authentification/form-authentification.component';
+import { FormInscriptionComponent } from './components/util/form-inscription/form-inscription.component';
+import { FormPostComponent } from './components/util/form-post/form-post.component';
+import { NotFoundComponent } from './components/metier/not-found/not-found.component';
+import { PostComponent } from './components/util/list-post/post/post.component';
+import { ListPostComponent } from './components/util/list-post/list-post.component';
+import { PostsComponent } from './components/metier/posts/posts.component';
+import { PostSidebarComponent } from './components/metier/posts/post-sidebar/post-sidebar.component';
+import { StatsComponent } from './components/metier/administration/stats/stats.component';
+import { UserComponent } from './components/util/list-user/user/user.component';
+import { ListUserComponent } from './components/util/list-user/list-user.component';
+import { UsersComponent } from './components/metier/users/users.component';
+import { PortalComponent } from './components/metier/portal/portal.component';
+
+import { CommentService } from './services/comment.service';
+import { PostService } from './services/post.service';
 import { PaginationService } from './services/pagination.service';
-import { UserComponent } from './components/users/user-list/user/user.component';
-import { UserListComponent } from './components/users/user-list/user-list.component';
-import { UserListService } from './services/user-list.service';
-import { PostsComponent } from './components/posts/posts.component';
-import { InscriptionComponent } from './components/inscription/inscription.component';
-import { AboutComponent } from './components/about/about.component';
-import { AdministrationComponent } from './components/administration/administration.component';
-import { StatsComponent } from './components/administration/stats/stats.component';
-import { UsersComponent } from './components/users/users.component';
+import { UserService } from './services/user.service';
+import { TableComponent } from './components/util/table/table.component';
+import { ManageUserComponent } from './components/metier/administration/manage-user/manage-user.component';
+import { ManagePostComponent } from './components/metier/administration/manage-post/manage-post.component';
+import { ManageCommentComponent } from './components/metier/administration/manage-comment/manage-comment.component';
+import { ManageContentComponent } from './components/metier/administration/manage-content/manage-content.component';
 
 @NgModule({
   	declarations: [
@@ -38,29 +43,33 @@ import { UsersComponent } from './components/users/users.component';
     	HomeComponent,
     	FormAuthentificationComponent,
     	FormInscriptionComponent,
-    	PostListComponent,
+    	ListPostComponent,
     	PostComponent,
     	PostSidebarComponent,
     	FormPostComponent,
     	CommentComponent,
-    	CommentListComponent,
+    	ListCommentComponent,
     	NotFoundComponent,
     	UserComponent,
-    	UserListComponent,
+    	ListUserComponent,
     	PostsComponent,
-    	InscriptionComponent,
+    	PortalComponent,
     	AboutComponent,
     	AdministrationComponent,
     	StatsComponent,
-    	UsersComponent
+    	UsersComponent,
+    	TableComponent,
+    	ManageUserComponent,
+    	ManagePostComponent,
+    	ManageCommentComponent,
+    	ManageContentComponent
   	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		HttpClientModule,
 		FormsModule
 	  ],
-  		providers: [CommentListService, PostListService, PaginationService, UserListService],
+  		providers: [CommentService, PostService, PaginationService, UserService],
   		bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,0 +1,28 @@
+<!-- Portail d'inscription et de connexion -->
+<section>
+	<div class="container">
+		<form>
+			<h3 *ngIf="newUser">S'inscrire</h3>
+			<h3 *ngIf="!newUser">Se connecter</h3>
+			<hr>
+			<app-form-inscription *ngIf="newUser"></app-form-inscription>
+			<app-form-authentification *ngIf="!newUser"></app-form-authentification>
+			<hr>
+			<div *ngIf="newUser">
+				<button type="submit" class="btn btn-primary">S'inscrire</button>
+				<small id="signUpHelpBlock" class="form-text text-muted">
+					Déjà membre? <a routerLink="../authentification">Se connecter ici.</a>
+				</small>
+			</div>
+			<div *ngIf="!newUser">
+				<button type="submit" class="btn btn-primary">Se connecter</button>
+				<small id="signUpHelpBlock" class="form-text text-muted">
+					Nouveau sur le site? <a routerLink="../inscription">Inscrivez-vous ici.</a>
+				</small>
+				<small id="signInHelpBlock" class="form-text text-muted">
+					Mot de passe oublié? <a routerLink="">Clickez ici.</a>
+				</small>
+			</div>
+		</form>
+	</div>	
+</section>

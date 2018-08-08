@@ -1,0 +1,129 @@
+<div class="input-group mb-3">
+	<div class="input-group-prepend">
+		<span class="input-group-text" id="inputGroup-sizing-default"><i class="fa fa-search"></i></span>
+	</div>
+	<input id="searchBar" class="form-control" [(ngModel)]="searchText" (ngModelChange)="setPage(1)" placeholder="Rechercher par {{ searchProperty }}" type="text">
+</div>
+<!--Tableau des utilisateurs-->
+<table *ngIf="type == 'user'" class="table table-striped table-sm">
+	<thead>
+		<tr>
+			<th scope="col" (click)="setPage(1, 'id')">Id
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'id' && !isDesc),'fa-angle-up': (column == 'id' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'name')">Prénom
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'name' && !isDesc),'fa-angle-up': (column == 'name' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'surname')">Nom
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'surname' && !isDesc),'fa-angle-up': (column == 'surname' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'location.town')">Ville
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'town' && !isDesc),'fa-angle-up': (column == 'town' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'location.province')">Département
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'province' && !isDesc),'fa-angle-up': (column == 'province' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'grade.gradeName')">Grade
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'gradeName' && !isDesc),'fa-angle-up': (column == 'gradeName' && isDesc) }" aria-hidden="true"></i>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let data of pagedData">
+			<td scope="row">
+				<img class="profil-pic" src="{{ data.profilPicture }}" alt="Avatar">
+			</td>
+			<td><a routerLink="/membres/{{ data.id }}">{{ data.name }}</a></td>
+			<td>{{ data.surname }}</td>
+			<td>{{ data.location.town }}</td>
+			<td>{{ data.location.province }}</td>
+			<td><span class="lead badge" [ngClass]="{'badge-warning': data.grade.id==2, 'badge-danger': data.grade.id==3, 'badge-success': data.grade.id==1}" title="{{ data.grade.description }}">{{ data.grade.gradeName }}</span></td>
+		</tr>
+	</tbody>
+</table>
+<!--Tableau des posts-->
+<table *ngIf="type == 'post'" class="table table-striped table-sm">
+	<thead>
+		<tr>
+			<th scope="col" (click)="setPage(1, 'id')">Id
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'id' && !isDesc),'fa-angle-up': (column == 'id' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'title')">Titre
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'title' && !isDesc),'fa-angle-up': (column == 'title' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'author.name')">Auteur
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'name' && !isDesc),'fa-angle-up': (column == 'name' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'content')">Contenu
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'content' && !isDesc),'fa-angle-up': (column == 'content' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'date')">Date
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'date' && !isDesc),'fa-angle-up': (column == 'date' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'tag')">Tag
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'tag' && !isDesc),'fa-angle-up': (column == 'tag' && isDesc) }" aria-hidden="true"></i>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let data of pagedData">
+			<th scope="row">{{ data.id }}</th>
+			<td><a routerLink="/posts/{{ data.id }}">{{ data.title }}</a></td>
+			<td><a routerLink="/membres/{{ data.author.id }}">{{ data.author.name }} {{ data.author.surname }}</a></td>
+			<td><small>{{ data.content }}</small></td>
+			<td>{{ data.date }}</td>
+			<td>{{ data.tag }}</td>
+		</tr>
+	</tbody>
+</table>
+<!--Tableau des commentaires-->
+<table *ngIf="type == 'comment'" class="table table-striped table-sm">
+	<thead>
+		<tr>
+			<th scope="col" (click)="setPage(1, 'id')">Id
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'id' && !isDesc),'fa-angle-up': (column == 'id' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'postId')">Id post
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'postId' && !isDesc),'fa-angle-up': (column == 'postId' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'author.name')">Auteur
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'name' && !isDesc),'fa-angle-up': (column == 'name' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'content')">Contenu
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'content' && !isDesc),'fa-angle-up': (column == 'content' && isDesc) }" aria-hidden="true"></i>
+			</th>
+			<th scope="col" (click)="setPage(1, 'date')">Date
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'date' && !isDesc),'fa-angle-up': (column == 'date' && isDesc) }" aria-hidden="true"></i>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let data of pagedData">
+			<th scope="row">{{ data.id }}</th>
+			<td><a routerLink="/posts/{{ data.postId }}">{{ data.postId }}</a></td>
+			<td>{{ data.author.name }} {{ data.author.surname }}</td>
+			<td>{{ data.content }}</td>
+			<td>{{ data.date }}</td>
+		</tr>
+	</tbody>
+</table>
+<!--pagination-->
+<nav aria-label="...">
+	<ul *ngIf="pagination.pages && pagination.pages.length" class="pagination">
+		<li [ngClass]="{disabled:pagination.currentPage === 1}" class="page-item">
+		<a class="page-link" (click)="setPage(1)">Première page</a>
+		</li>
+		<li [ngClass]="{disabled:pagination.currentPage === 1}" class="page-item">
+		<a class="page-link" (click)="setPage(pagination.currentPage - 1)">Précédente</a>
+		</li>
+		<li *ngFor="let page of pagination.pages" [ngClass]="{active:pagination.currentPage === page}" class="page-item">
+		<a class="page-link" (click)="setPage(page)">{{ page }}</a>
+		</li>
+		<li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}" class="page-item">
+		<a class="page-link" (click)="setPage(pagination.currentPage + 1)">Suivante</a>
+		</li>
+		<li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}" class="page-item">
+		<a class="page-link" (click)="setPage(pagination.totalPages)">Dernière page</a>
+		</li>
+	</ul>
+</nav>

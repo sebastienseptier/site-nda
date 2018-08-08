@@ -1,8 +1,9 @@
+import { User } from "./user";
+
 export interface Comment {
     id: number;
 	postId: number;
-	author: String;
+	author: User;
 	content: String;
 	date: String;
-	profilPictureLink: String;
 }

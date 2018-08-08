@@ -1,0 +1,33 @@
+<article *ngFor="let post of pagedPosts">
+	<div class="card flex-md-row mb-4 shadow-sm">
+		<div class="card-body d-flex flex-column align-items-start">
+			<strong class="d-inline-block mb-2 text-primary">{{ post.tag }}</strong>
+			<h3 class="mb-0">
+				<a class="text-dark" routerLink="/posts/{{ post.id }}">{{ post.title }}</a>
+			</h3>
+			<div class="mb-1 text-muted">{{ post.date }} ⋅ <a routerLink="/membres/{{ post.author.id }}">{{ post.author.name }} {{ post.author.surname }}</a></div>
+			<p class="card-text mb-auto">{{ post.content | slice:0:200 }}{{ post.content.length > 20 ? '[...]' : ''}}</p>
+			<a routerLink="/posts/{{ post.id }}">Lire l'article</a>
+		</div>
+	</div>
+</article>
+<!--pagination-->
+<nav aria-label="...">
+	<ul *ngIf="pagination.pages && pagination.pages.length" class="pagination">
+		<li [ngClass]="{disabled:pagination.currentPage === 1}" class="page-item">
+			<a class="page-link" (click)="setPage(1)">Première page</a>
+		</li>
+		<li [ngClass]="{disabled:pagination.currentPage === 1}" class="page-item">
+			<a class="page-link" (click)="setPage(pagination.currentPage - 1)">Précédente</a>
+		</li>
+		<li *ngFor="let page of pagination.pages" [ngClass]="{active:pagination.currentPage === page}" class="page-item">
+			<a class="page-link" (click)="setPage(page)">{{ page }}</a>
+		</li>
+		<li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}" class="page-item">
+			<a class="page-link" (click)="setPage(pagination.currentPage + 1)">Suivante</a>
+		</li>
+		<li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}" class="page-item">
+			<a class="page-link" (click)="setPage(pagination.totalPages)">Dernière page</a>
+		</li>
+	</ul>
+</nav>
