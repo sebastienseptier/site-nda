@@ -1,3 +1,8 @@
 .logo {
-    width: 24px;
+    width: 34px;
+    margin-right: 5px;
+}
+
+.dropdown-item:hover {
+    background-color: #e4e4e4;
 }

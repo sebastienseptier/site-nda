@@ -1,7 +1,32 @@
 .title {
     color: white;
+    height: 400px;
+    overflow: hidden;
+    font-size: 1.5em;
 }
-header {
-    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-    background-size: cover; /* version standardisée */
-  }
+
+.carousel-caption {
+    position: absolute;
+    top: 40px;
+}
+
+.carousel {
+    height: 400px;
+}
+
+.carousel-pic {
+    height: 100vh;
+}
+
+/* Adaptation du carousel aux petits écrans */
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size:28px;
+    }
+    .lead {
+        font-size:14px;
+    }
+    .img-fluid {
+        width: 40px;
+    }
+}

@@ -34,6 +34,8 @@ import { ManageUserComponent } from './components/metier/administration/manage-u
 import { ManagePostComponent } from './components/metier/administration/manage-post/manage-post.component';
 import { ManageCommentComponent } from './components/metier/administration/manage-comment/manage-comment.component';
 import { ManageContentComponent } from './components/metier/administration/manage-content/manage-content.component';
+import { FormParametersComponent } from './components/util/form-parameters/form-parameters.component';
+import { ContentService } from './services/content.service';
 
 @NgModule({
   	declarations: [
@@ -62,14 +64,15 @@ import { ManageContentComponent } from './components/metier/administration/manag
     	ManageUserComponent,
     	ManagePostComponent,
     	ManageCommentComponent,
-    	ManageContentComponent
+    	ManageContentComponent,
+    	FormParametersComponent
   	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		FormsModule
 	  ],
-  		providers: [CommentService, PostService, PaginationService, UserService],
+  		providers: [CommentService, PostService, PaginationService, UserService, ContentService],
   		bootstrap: [AppComponent]
 })
 export class AppModule {}

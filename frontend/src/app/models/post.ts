@@ -8,4 +8,5 @@ export interface Post {
 	date: String;
 	coverPictureLink: String;
 	tag: String;
+	validate: boolean;
 }

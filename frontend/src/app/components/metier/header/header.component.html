@@ -1,5 +1,5 @@
 <!--Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
 	<div class="container">
 		<a routerLink="" class="navbar-brand">
 			<img class="logo" src="../../../assets/logo.png" alt="logo">
@@ -11,26 +11,45 @@
 		<div class="collapse navbar-collapse" id="globalNavbar">
 			<ul class="navbar-nav mr-auto order-1">
 				<li class="nav-item">
-					<a class="nav-link" routerLink="../posts">Posts</a>
+					<a class="nav-link text-dark" routerLink="../posts">Posts</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="../membres">Membres</a>
+					<a class="nav-link text-dark" routerLink="../membres">Membres</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="../administration">Administration</a>
+					<a class="nav-link text-dark" routerLink="../administration">Administration</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="../apropos">À propos</a>
+					<a class="nav-link text-dark" routerLink="../apropos">À propos</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
+			<!--TODO:Afficher les lignes commentées lorsque l'utilisateur est déconnecté.
 				<li class="nav-item"><a class="nav-link" routerLink="authentification">Se connecter</a></li>
-				<li class="nav-item"><a class="nav-link" routerLink="inscription">S'inscrire</a></li>
+				<li class="nav-item"><a class="nav-link" routerLink="inscription">S'inscrire</a></li>-->
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle text-dark" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+						<img class="logo" src="../../../assets/user.svg" alt="logo">
+						<span>Chloé Dupont</span>
+					</a>
+					<div class="dropdown">
+						<div class="dropdown-menu top-line shadow-sm" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" routerLink="/membres/10"><i class="fa fa-user"></i> Mon profile</a>
+							<a class="dropdown-item" routerLink="/"><i class="fa fa-sign-out"></i> Se déconnecter</a>
+						</div>
+					</div>
+				</li>
 			</ul>
 			<ul class="navbar-nav d-lg-none">
-				<li class="nav-item-divider"></li>
+				<!--<li class="nav-item-divider"></li>
 				<li class="nav-item"><a class="nav-link" routerLink="authentification" routerLinkActive="active">Se connecter</a></li>
-				<li class="nav-item"><a class="nav-link" routerLink="inscription" routerLinkActive="active">S'inscrire</a></li>
+				<li class="nav-item"><a class="nav-link" routerLink="inscription" routerLinkActive="active">S'inscrire</a></li>-->
+				<li class="nav-item">
+					<hr><a class="nav-link" routerLink="/membres/10"><i class="fa fa-user"></i> Mon profile</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/"><i class="fa fa-sign-out"></i> Se déconnecter</a>	
+				</li>
 			</ul>
 		</div>
 	</div>

@@ -2,7 +2,7 @@
 	<div class="container">
 		<!--Head-->
 		<div class="media">
-			<img class="" src="{{ user.profilPicture }}" alt="">
+			<img class="profil-pic" src="{{ user.profilPicture }}" alt="">
 			<div class="media-body ml-3">
 				<h1 class="mb-0">{{ user.name }} {{ user.surname }}</h1>
 				<span class="lead badge" [ngClass]="{'badge-warning': user.grade.id==2, 'badge-danger': user.grade.id==3, 'badge-success': user.grade.id==1}" title="{{ user.grade.gradeDescription }}">{{ user.grade.gradeName }}</span>
@@ -67,29 +67,7 @@
 					</div>
 					<div class="tab-pane fade" id="parameters" role="tabpanel" aria-labelledby="parameters-tab">
 						<!--Third item content-->
-						<form class="needs-validation" novalidate="">
-							<h4 class="mb-3">Notifications</h4>
-							<div class="custom-control custom-checkbox">
-								<input class="custom-control-input" id="notify-on-comment" type="checkbox">
-								<label class="custom-control-label" for="notify-on-comment">M'envoyer un mail lorsque l'on ajoute un commentaire à l'un de mes posts.</label>
-							</div>
-							<div class="custom-control custom-checkbox">
-								<input class="custom-control-input" id="notify-on-msg" type="checkbox" checked>
-								<label class="custom-control-label" for="notify-on-msg">M'envoyer un mail lorsque je reçois un message privé.</label>
-							</div>
-							<hr>
-							<h4 class="mb-3">Confidentialités</h4>
-							<div class="d-block my-3">
-								<div class="custom-control custom-radio">
-									<input id="display-promotion-date" name="paymentMethod" class="custom-control-input" checked="" required="" type="radio">
-									<label class="custom-control-label" for="display-promotion-date">Afficher mon année de promotion</label>
-								</div>
-								<div class="custom-control custom-radio">
-									<input id="hide-promotion-date" name="paymentMethod" class="custom-control-input" required="" type="radio">
-									<label class="custom-control-label" for="hide-promotion-date">Ne pas afficher</label>
-								</div>
-							</div>
-						</form>
+						<app-form-parameters></app-form-parameters>
 					</div>
 				</div>
 			</div>

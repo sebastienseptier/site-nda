@@ -23,7 +23,7 @@ export class PostService {
 				registrationDate: '2018-07-01',
 				lastConnection: '2018-07-01',
 				isConnected: true,
-				profilPicture: '/assets/user.png',
+				profilPicture: '/assets/user.svg',
 				description: 'Description de Romain Dupont. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
 				changePassword: false,
 				lockout: false,
@@ -34,7 +34,8 @@ export class PostService {
 			content: 'Content for the first post. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.',
 			date: '04/07/18',
 			coverPictureLink: '../../../assets/photo_entry.jpg',
-			tag: 'Travail'
+			tag: 'Travail',
+			validate: true
 		},
 		{ 	id: 2,
 			title: 'Second post',
@@ -50,7 +51,7 @@ export class PostService {
 				registrationDate: '2017-07-21',
 				lastConnection: '2018-04-20',
 				isConnected: true,
-				profilPicture: '/assets/user.png',
+				profilPicture: '/assets/user.svg',
 				description: 'Description de Manon Dumont. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
 				changePassword: false,
 				lockout: false,
@@ -61,7 +62,8 @@ export class PostService {
 			content: 'Content for the second post. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.',
 			date: '08/07/18',
 			coverPictureLink: '../../../assets/photo_entry.jpg',
-			tag: 'Voyage'
+			tag: 'Voyage',
+			validate: false
 		},
 		{ 	id: 3,
 			title: 'Third post',
@@ -77,7 +79,7 @@ export class PostService {
 				registrationDate: '2018-07-01',
 				lastConnection: '2018-07-01',
 				isConnected: true,
-				profilPicture: '/assets/user.png',
+				profilPicture: '/assets/user.svg',
 				description: 'Description de Céline Duont. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
 				changePassword: false,
 				lockout: false,
@@ -88,7 +90,8 @@ export class PostService {
 			content: 'Content for the third post. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.',
 			date: '09/07/18',
 			coverPictureLink: '../../../assets/photo_entry.jpg',
-			tag: 'Humour'
+			tag: 'Humour',
+			validate: true
 		},
 		{ 	id: 4,
 			title: 'Fourth post',
@@ -104,7 +107,7 @@ export class PostService {
 				registrationDate: '2018-07-01',
 				lastConnection: '2018-07-01',
 				isConnected: true,
-				profilPicture: '/assets/user.png',
+				profilPicture: '/assets/user.svg',
 				description: 'Description de Romain Dupont. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
 				changePassword: false,
 				lockout: false,
@@ -115,7 +118,8 @@ export class PostService {
 			content: 'Content for the fourth post. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.',
 			date: '04/07/18',
 			coverPictureLink: '../../../assets/photo_entry.jpg',
-			tag: 'Travail'
+			tag: 'Travail',
+			validate: true
 		},
 		{ 	id: 5,
 			title: 'Fifth post',
@@ -131,7 +135,7 @@ export class PostService {
 				registrationDate: '2018-07-01',
 				lastConnection: '2018-07-01',
 				isConnected: true,
-				profilPicture: '/assets/user.png',
+				profilPicture: '/assets/user.svg',
 				description: 'Description de Victor Durand. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.',
 				changePassword: false,
 				lockout: false,
@@ -142,7 +146,8 @@ export class PostService {
 			content: 'Content for the fith post. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.',
 			date: '12/07/18',
 			coverPictureLink: '../../../assets/photo_entry.jpg',
-			tag: 'Photographie'
+			tag: 'Photographie',
+			validate: false
 		}
 	];
 

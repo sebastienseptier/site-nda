@@ -1,14 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
-.card a:not(.btn) {
-	text-decoration: none;
-}
-
-.profil-pic {
-    width: 80px;
-    height: 80px;
-}
-
 section {
     margin-top: 50px;
 }
