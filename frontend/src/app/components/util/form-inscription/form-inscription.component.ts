@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '../../../../../node_modules/@angular/forms';
 import { User } from '../../../models/user';
 
 @Component({
@@ -52,7 +53,16 @@ export class FormInscriptionComponent implements OnInit {
 		{ id: 3, name: 'Pas de Calais'}
 	];
 
-	constructor() {}
+	myform: FormGroup;
+	gender: FormControl;
+	firstName: FormControl;
+	lastName: FormControl;
+	province: FormControl;
+	town: FormControl;
+	birthDate: FormControl;
+	promotion: FormControl;
+	email: FormControl;
+	password: FormControl;
 
 	ngOnInit() {
 		//On définit un nouvel utilisateur s'il le component est utilisé depuis la page d'inscription.
@@ -66,6 +76,42 @@ export class FormInscriptionComponent implements OnInit {
 		else {
 			this.isFemale = this.user.gender == 'female';
 		}
+		this.createFormControls();
+		this.createForm();
 	}
-
+	
+	createFormControls() {
+		this.gender = new FormControl(this.user.gender, Validators.required);
+		this.firstName = new FormControl(this.user.name, Validators.required);
+		this.lastName = new FormControl(this.user.surname, Validators.required);
+		this.province = new FormControl(this.user.location.province, Validators.required);
+		this.town = new FormControl(this.user.location.town, Validators.required);
+		this.birthDate = new FormControl(this.user.birthDate, Validators.required);
+		this.promotion = new FormControl(this.user.promotion, Validators.required);
+		this.email = new FormControl(this.user.email, [
+			Validators.required,
+			Validators.pattern("[^ @]*@[^ @]*")
+		]);
+		this.password = new FormControl(this.user.password, [
+			Validators.required,
+			Validators.minLength(8),
+			Validators.pattern("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,16})")
+		]);
+	}
+	
+	createForm() {
+		this.myform = new FormGroup({
+			gender: this.gender,
+			name: new FormGroup({
+				firstName: this.firstName,
+				lastName: this.lastName,
+			}),
+			province: this.province,
+			town: this.town,
+			birthDate: this.birthDate,
+			promotion: this.promotion,
+			email: this.email,
+			password: this.password
+		});
+	}
 }

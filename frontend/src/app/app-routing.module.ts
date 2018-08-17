@@ -10,6 +10,8 @@ import { AdministrationComponent } from './components/metier/administration/admi
 import { AboutComponent } from './components/metier/about/about.component';
 import { NotFoundComponent } from './components/metier/not-found/not-found.component';
 import { HomeComponent } from './components/metier/home/home.component';
+import { PersonnalDataComponent } from './components/metier/personnal-data/personnal-data.component';
+import { ContactsComponent } from './components/metier/contacts/contacts.component';
 
 const appRoutes: Routes = [
 	{ path: 'authentification', component: PortalComponent},
@@ -21,6 +23,8 @@ const appRoutes: Routes = [
 	{ path: 'membres/:id', component: UserComponent},
 	{ path: 'administration', component: AdministrationComponent},
 	{ path: 'apropos', component: AboutComponent},
+	{ path: 'contacts', component: ContactsComponent},
+	{ path: 'donnees-personnelles', component: PersonnalDataComponent},
 	{ path: 'pageIntrouvee', component: NotFoundComponent},
 	{ path: '', component: HomeComponent },
 	{ path: '**', component: NotFoundComponent }

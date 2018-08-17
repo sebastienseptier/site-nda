@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -33,9 +33,9 @@ import { TableComponent } from './components/util/table/table.component';
 import { ManageUserComponent } from './components/metier/administration/manage-user/manage-user.component';
 import { ManagePostComponent } from './components/metier/administration/manage-post/manage-post.component';
 import { ManageCommentComponent } from './components/metier/administration/manage-comment/manage-comment.component';
-import { ManageContentComponent } from './components/metier/administration/manage-content/manage-content.component';
 import { FormParametersComponent } from './components/util/form-parameters/form-parameters.component';
-import { ContentService } from './services/content.service';
+import { PersonnalDataComponent } from './components/metier/personnal-data/personnal-data.component';
+import { ContactsComponent } from './components/metier/contacts/contacts.component';
 
 @NgModule({
   	declarations: [
@@ -64,15 +64,17 @@ import { ContentService } from './services/content.service';
     	ManageUserComponent,
     	ManagePostComponent,
     	ManageCommentComponent,
-    	ManageContentComponent,
-    	FormParametersComponent
+    	FormParametersComponent,
+    	PersonnalDataComponent,
+    	ContactsComponent
   	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		FormsModule
+		FormsModule,
+        ReactiveFormsModule
 	  ],
-  		providers: [CommentService, PostService, PaginationService, UserService, ContentService],
+  		providers: [CommentService, PostService, PaginationService, UserService],
   		bootstrap: [AppComponent]
 })
 export class AppModule {}
