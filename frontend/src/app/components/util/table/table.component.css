@@ -14,3 +14,7 @@
     background-color: #d8d8d8;
     cursor: pointer;
 }
+.table thead th {
+    vertical-align: super;
+    border-bottom: 2px solid #dee2e6;
+}

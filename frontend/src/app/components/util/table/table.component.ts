@@ -12,13 +12,14 @@ export class TableComponent implements OnInit {
 	@Input() type: string;
 	@Input() data: any[];
 	@Input() privilege: string = 'membre';
+	
 	//Données de filtrage et de pagination.
-	private pagedData: any[];
-	private pagination: any = {};
-	private isDesc: boolean = true;
-	private column: String = 'id';
-	private searchText: String = '';
-	private searchProperty;
+	pagedData: any[];
+	pagination: any = {};
+	isDesc: boolean = true;
+	column: String = 'id';
+	searchText: String = '';
+	searchProperty;
 
 	constructor(private paginationService: PaginationService) { }
 

@@ -8,8 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PortalComponent implements OnInit {
 
-	private requestedPortal: string = '';
-	private newUser: boolean = true;
+	requestedPortal: string = '';
+	newUser: boolean = true;
 
 	constructor(private route:ActivatedRoute) {}
   

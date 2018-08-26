@@ -15,25 +15,25 @@ const routes = require('./routes/route')(router); // Import Routes
 
 const PORT = process.env.PORT || 8080; // Allows heroku to set port.
 
-// Database Connection
-mongoose.connect(config.uri, (err) => {
+// Database Connection (commenté pour test)
+/*mongoose.connect(config.uri, (err) => {
     // Check if database was able to connect
     if (err) {
       console.log('Could NOT connect to database: ', err); // Return error message.
     } else {
       console.log('Connected to ' + config.db); // Return success message.
     }
-});
+});*/
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:4200' })); // Allows cross origin in development only.
-app.use(bodyParser.json()); // parse application/json.
-app.use(express.static(__dirname + '/frontend')); // Provide static directory for frontend.
-app.use('/', routes); // Use User routes in application.
+/*app.use(cors({ origin: 'http://localhost:4200' })); // Allows cross origin in development only.
+app.use(bodyParser.json()); // parse application/json.*/
+app.use(express.static(__dirname + '/frontend/dist')); // Provide static directory for frontend.
+/*app.use('/', routes); // Use User routes in application.*/
 
 // Connect server to Angular project.
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/frontend/src/index.html'));
+    res.sendFile(path.join(__dirname + '/frontend/dist'));
 });
 
 // Start Server: Listen on port 8080.

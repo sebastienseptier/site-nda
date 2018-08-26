@@ -24,7 +24,7 @@ export class UserService {
 			lockout: false,
 			attempts: 1,
 			birthDate: '1992-01-05',
-			promotion: 2004
+			promotion: '2004'
 		},
 		{ 	id: 2,
 			location: { id: 1, town: 'Valenciennes', province: 'Nord', country: 'France'},
@@ -44,7 +44,7 @@ export class UserService {
 			lockout: false,
 			attempts: 1,
 			birthDate: '1985-12-02',
-			promotion: 2014
+			promotion: '2014'
 		},
 		{ 	id: 3,
 			location: { id: 1, town: 'Paris', province: 'Ile de France', country: 'France'},
@@ -64,7 +64,7 @@ export class UserService {
 			lockout: false,
 			attempts: 1,
 			birthDate: '1992-02-14',
-			promotion: 2002
+			promotion: '2002'
 		},
 		{ 	id: 4,
 			location: { id: 1, town: 'Douais', province: 'Nord', country: 'France'},
@@ -84,7 +84,7 @@ export class UserService {
 			lockout: false,
 			attempts: 1,
 			birthDate: '1995-03-17',
-			promotion: 2013
+			promotion: '2013'
 		},
 		{ 	id: 5,
 			location: { id: 1, town: 'Lomme', province: 'Nord', country: 'France'},
@@ -104,7 +104,7 @@ export class UserService {
 			lockout: false,
 			attempts: 1,
 			birthDate: '1992-04-26',
-			promotion: 2017
+			promotion: '2017'
 		},
 		{ 	id: 6,
 			location: { id: 1, town: 'Lille', province: 'Nord', country: 'France'},
@@ -124,7 +124,7 @@ export class UserService {
 			lockout: false,
 			attempts: 1,
 			birthDate: '1992-02-15',
-			promotion: 2002
+			promotion: '2002'
 		},
 		{ 	id: 7,
 			location: { id: 1, town: 'Lille', province: 'Nord', country: 'France'},
@@ -144,7 +144,7 @@ export class UserService {
 			lockout: false,
 			attempts: 1,
 			birthDate: '1985-02-12',
-			promotion: 2000
+			promotion: '2000'
 		},
 		{ 	id: 8,
 			location: { id: 1, town: 'Lille', province: 'Nord', country: 'France'},
@@ -164,7 +164,7 @@ export class UserService {
 			lockout: false,
 			attempts: 1,
 			birthDate: '1992-02-14',
-			promotion: 2012
+			promotion: '2012'
 		},
 		{ 	id: 9,
 			location: { id: 1, town: 'St-Omer', province: 'Pas de Calais', country: 'France'},
@@ -184,7 +184,7 @@ export class UserService {
 			lockout: false,
 			attempts: 1,
 			birthDate: '1995-03-17',
-			promotion: 2004
+			promotion: '2004'
 		},
 		{ 	id: 10,
 			location: { id: 1, town: 'St-Amand-les-Eaux', province: 'Nord', country: 'France'},
@@ -204,7 +204,7 @@ export class UserService {
 			lockout: false,
 			attempts: 1,
 			birthDate: '1992-09-08',
-			promotion: 2013
+			promotion: '2013'
 		}
 	];
 

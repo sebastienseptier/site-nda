@@ -2,6 +2,13 @@
 <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
 <div class="mt-5">
 	<h5>Ajoutez un commentaire</h5>
-	<textarea class="form-control mt-3" rows="3" placeholder="Entrez votre commentaire ici"></textarea>
-	<a routerLink="../../posts" class="btn btn-success mt-3">Publier</a>
+	<form novalidate [formGroup]="myform">
+		<textarea class="form-control mt-3" rows="3" [ngClass]="{
+		'is-invalid': comment.invalid && (comment.dirty || comment.touched),
+		'is-valid': comment.valid && (comment.dirty || comment.touched)}" placeholder="Entrez votre commentaire ici" formControlName="comment"></textarea>
+		<div class="form-control-feedback invalid-feedback" *ngIf="comment.errors && (comment.dirty || comment.touched)">
+			<p *ngIf="comment.errors.required">Le champs Commentaire est requis</p>
+		</div>
+		<a routerLink="../../posts" class="btn btn-success mt-3">Publier</a>
+	</form>
 </div>

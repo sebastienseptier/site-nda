@@ -9,9 +9,9 @@ import { Post } from '../../../../models/post';
 })
 export class PostSidebarComponent implements OnInit {
 
-	private tags: string[];
-	private usedTags: string[] = [];
-	private posts: Post[];
+	tags: string[];
+	usedTags: string[] = [];
+	posts: Post[];
 
 	constructor(private postService: PostService) { }
 

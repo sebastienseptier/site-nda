@@ -4,7 +4,7 @@
 		<input type="email" class="form-control" formControlName="email" [ngClass]="{
 			'is-invalid': email.invalid && (email.dirty || email.touched),
 			'is-valid': email.valid && (email.dirty || email.touched)}" id="inputEmail" placeholder="Adresse email" required>
-		<div class="form-control-feedback text-danger" *ngIf="email.errors && (email.dirty || email.touched)">
+		<div class="form-control-feedback invalid-feedback" *ngIf="email.errors && (email.dirty || email.touched)">
 			<p *ngIf="email.errors.required">Le champ Adresse email est requis</p>
 			<p *ngIf="password.errors.pattern">L'adresse email n'est pas conforme</p>
 		</div>
@@ -17,7 +17,7 @@
 			class="form-control"
 			formControlName="password"
 			required>
-		<div class="form-control-feedback text-danger" *ngIf="password.errors && (password.dirty || password.touched)">
+		<div class="form-control-feedback invalid-feedback" *ngIf="password.errors && (password.dirty || password.touched)">
 			<p *ngIf="password.errors.required">Le champs Mode de passe est requis</p>
 			<p *ngIf="password.errors.minlength">Le mot de passe doit contenir au moins 1 majuscule, 1 minuscule, 1 chiffre, et doit avoir au moins 8 caractères, il en manque {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}}.</p>
 		</div>

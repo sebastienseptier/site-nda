@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentService } from '../../../services/comment.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-list-comment',
@@ -9,12 +10,25 @@ import { CommentService } from '../../../services/comment.service';
 export class ListCommentComponent implements OnInit {
 
 	@Input() postId: number;
-	private comments: Comment[];
+	comments: Comment[];
+	myform: FormGroup;
+	comment: FormControl;
 
 	constructor(private commentService: CommentService) {}
 
 	ngOnInit() {
 		this.comments = this.commentService.getCommentListByPostId(this.postId);
+		this.createFormControls();
+		this.createForm();
 	}
 
+	createFormControls() {
+		this.comment = new FormControl('', [Validators.required]);
+	}
+	
+	createForm() {
+		this.myform = new FormGroup({
+			comment: this.comment
+		});
+	}
 }

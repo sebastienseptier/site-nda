@@ -21,5 +21,5 @@ export interface User {
 	lockout: boolean;
 	attempts: number;
 	birthDate: String;
-	promotion: number;
+	promotion: String;
 }

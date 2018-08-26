@@ -10,8 +10,8 @@ import { User } from '../../../../models/user';
 })
 export class UserComponent implements OnInit {
 
-	private user: User;
-	private requestedId: number;
+	user: User;
+	requestedId: number;
 	
 	constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
 		this.requestedId = this.activatedRoute.snapshot.params['id'];

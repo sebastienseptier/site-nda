@@ -1,3 +1,30 @@
 #barChart, #doughnutChart{
     width: 100%;
 }
+.widget.widget-tile {
+    padding: 24px 20px;
+    margin-bottom: 25px;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    
+}
+.widget {
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    border: 1px solid #e7e7e7;
+    background-color: rgb(255, 255, 255);
+}
+.widget.widget-tile .data-info {
+    display: table-cell;
+    text-align: right;
+}
+.number {
+    color: #404040;
+    font-size: 1.5rem;
+}
+.bg-light {
+    padding: 16px;
+    background-color: #eee;
+}

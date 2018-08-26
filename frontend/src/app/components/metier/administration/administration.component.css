@@ -1,3 +1,16 @@
-.nav-link.active {
-    border: 0px;
+li {
+    text-align: center;
+}
+.admin-bar {
+    top: 52px;
+}
+.tab-content {
+    width: 100%;
+}
+/* Adaptation de la navbar aux petits écrans */
+@media screen and (max-width: 500px) {
+    .admin-bar {
+        position: relative;
+        z-index: 0;
+    }
 }

@@ -9,7 +9,7 @@ import { User } from '../../../../models/user';
 })
 export class ManageUserComponent implements OnInit {
 
-  	private users: User[];
+  	users: User[];
 
 	constructor(private userService: UserService) { }
 

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PersonnalDataComponent } from './personnal-data.component';
+import { ThermsPrivacyComponent } from './therms-privacy.component';
 
-describe('PersonnalDataComponent', () => {
-  let component: PersonnalDataComponent;
-  let fixture: ComponentFixture<PersonnalDataComponent>;
+describe('ThermsPrivacyComponent', () => {
+  let component: ThermsPrivacyComponent;
+  let fixture: ComponentFixture<ThermsPrivacyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PersonnalDataComponent ]
+      declarations: [ ThermsPrivacyComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PersonnalDataComponent);
+    fixture = TestBed.createComponent(ThermsPrivacyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

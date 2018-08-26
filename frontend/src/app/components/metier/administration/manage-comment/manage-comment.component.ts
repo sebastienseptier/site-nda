@@ -8,7 +8,7 @@ import { CommentService } from '../../../../services/comment.service';
 })
 export class ManageCommentComponent implements OnInit {
 
-	private comments: Comment[];
+	comments: Comment[];
 
 	constructor(private commentService: CommentService) { }
 

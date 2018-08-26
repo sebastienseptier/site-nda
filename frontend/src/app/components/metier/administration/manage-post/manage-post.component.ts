@@ -9,7 +9,7 @@ import { Post } from '../../../../models/post';
 })
 export class ManagePostComponent implements OnInit {
 
-  	private posts: Post[];
+  	posts: Post[];
 
 	constructor(private postService: PostService) { }
 

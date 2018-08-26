@@ -34,7 +34,7 @@ import { ManageUserComponent } from './components/metier/administration/manage-u
 import { ManagePostComponent } from './components/metier/administration/manage-post/manage-post.component';
 import { ManageCommentComponent } from './components/metier/administration/manage-comment/manage-comment.component';
 import { FormParametersComponent } from './components/util/form-parameters/form-parameters.component';
-import { PersonnalDataComponent } from './components/metier/personnal-data/personnal-data.component';
+import { ThermsPrivacyComponent } from './components/metier/therms-privacy/therms-privacy.component';
 import { ContactsComponent } from './components/metier/contacts/contacts.component';
 
 @NgModule({
@@ -65,7 +65,7 @@ import { ContactsComponent } from './components/metier/contacts/contacts.compone
     	ManagePostComponent,
     	ManageCommentComponent,
     	FormParametersComponent,
-    	PersonnalDataComponent,
+    	ThermsPrivacyComponent,
     	ContactsComponent
   	],
 	imports: [

@@ -10,9 +10,9 @@ import { PaginationService } from '../../../services/pagination.service';
 })
 export class ListPostComponent implements OnInit {
 
-	private posts: Post[];
-	private pagedPosts: Post[];
-	private pagination: any = {};
+	posts: Post[];
+	pagedPosts: Post[];
+	pagination: any = {};
 
 	constructor(private postService: PostService, private paginationService: PaginationService) {}
 

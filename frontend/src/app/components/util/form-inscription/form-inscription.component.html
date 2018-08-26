@@ -15,20 +15,20 @@
 			<input [ngClass]="{
 			'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched),
 			'is-valid': firstName.valid && (firstName.dirty || firstName.touched)}" placeholder="Prénom" type="text" class="form-control" formControlName="firstName" required>
-			<div class="form-control-feedback" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
-				<p class="text-danger" *ngIf="firstName.errors.required">Le champs Prénom est requis</p>
+			<div class="form-control-feedback invalid-feedback" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+				<p *ngIf="firstName.errors.required">Le champs Prénom est requis</p>
 			</div>
 		</div>
 		<div class="form-group">
-			<label>Nom</label>
-			<input [ngClass]="{
+			<label>Nom de naissance</label>
+			<input id="inputLastName" [ngClass]="{
 			'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched),
 			'is-valid': lastName.valid && (lastName.dirty || lastName.touched)}" placeholder="Nom" type="text"
 					class="form-control"
 					formControlName="lastName"
 					required>
-			<div class="form-control-feedback" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
-				<p class="text-danger" *ngIf="lastName.errors.required">Le champs Nom est requis</p>
+			<div class="form-control-feedback invalid-feedback" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+				<p *ngIf="lastName.errors.required">Le champs Nom est requis</p>
 			</div>
 		</div>
 	  </fieldset>
@@ -38,11 +38,11 @@
 		<select #select formControlName="province" id="inputState" class="form-control" [ngClass]="{
 			'is-invalid': province.invalid && (province.dirty || province.touched),
 			'is-valid': province.valid && (province.dirty || province.touched)}">
-				<option value="">Selectionner un département</option>
+			<option value="">Selectionner un département</option>
 			<option *ngFor="let province of provinces" [value]="province.name">{{province.name}}</option>
 		</select>
-		<div class="form-control-feedback" *ngIf="province.errors && (province.dirty || province.touched)">
-			<p class="text-danger" *ngIf="province.errors.required">Le champs département est requis</p>
+		<div class="form-control-feedback invalid-feedback" *ngIf="province.errors && (province.dirty || province.touched)">
+			<p *ngIf="province.errors.required">Le champs département est requis</p>
 		</div>
 	</div>
 	<div class="form-group">
@@ -53,8 +53,8 @@
 			<option value="">Selectionner une ville</option>
 			<option *ngFor="let town of towns" [value]="town.name">{{town.name}}</option>
 		</select>
-		<div class="form-control-feedback" *ngIf="town.errors && (town.dirty || town.touched)">
-			<p class="text-danger" *ngIf="town.errors.required">Le champs ville est requis</p>
+		<div class="form-control-feedback invalid-feedback" *ngIf="town.errors && (town.dirty || town.touched)">
+			<p *ngIf="town.errors.required">Le champs ville est requis</p>
 		</div>
 	</div>
 	<div class="form-group">
@@ -62,8 +62,8 @@
 		<input type="date" formControlName="birthDate" class="form-control" id="inputBirthDate" placeholder="jj/mm/aaaa" [ngClass]="{
 			'is-invalid': birthDate.invalid && (birthDate.dirty || birthDate.touched),
 			'is-valid': birthDate.valid && (birthDate.dirty || birthDate.touched)}">
-		<div class="form-control-feedback" *ngIf="birthDate.errors && (birthDate.dirty || birthDate.touched)">
-			<p class="text-danger" *ngIf="birthDate.errors.required">Le champs Date de naissance est requis</p>
+		<div class="form-control-feedback invalid-feedback" *ngIf="birthDate.errors && (birthDate.dirty || birthDate.touched)">
+			<p *ngIf="birthDate.errors.required">Le champs Date de naissance est requis</p>
 		</div>
 	</div>
 	<div class="form-group">
@@ -72,11 +72,11 @@
 			'is-invalid': promotion.invalid && (promotion.dirty || promotion.touched),
 			'is-valid': promotion.valid && (promotion.dirty || promotion.touched)}">
 			<option value="">Selectionner une année de promotion</option>
-			<option value="none">Aucune</option>
+			<option value="Aucune">Aucune</option>
 			<option *ngFor="let promotion of promotions" [value]="promotion.name">{{promotion.name}}</option>
 		</select>
-		<div class="form-control-feedback" *ngIf="promotion.errors && (promotion.dirty || promotion.touched)">
-			<p class="text-danger" *ngIf="promotion.errors.required">Le champs Promotion est requis</p>
+		<div class="form-control-feedback invalid-feedback" *ngIf="promotion.errors && (promotion.dirty || promotion.touched)">
+			<p *ngIf="promotion.errors.required">Le champs Promotion est requis</p>
 		</div>
 	</div>
 	<div class="form-group">
@@ -87,7 +87,7 @@
 			class="form-control"
 			formControlName="email"
 			required>
-		<div class="form-control-feedback text-danger" *ngIf="email.errors && (email.dirty || email.touched)">
+		<div class="form-control-feedback invalid-feedback" *ngIf="email.errors && (email.dirty || email.touched)">
 			<p *ngIf="email.errors.required">Le champ Adresse email est requis</p>
 			<p *ngIf="password.errors.pattern">L'adresse email n'est pas conforme</p>
 		</div>
@@ -96,16 +96,23 @@
 		<label>Mot de passe</label>
 		<input [ngClass]="{
 			'is-invalid': password.invalid && (password.dirty || password.touched),
-			'is-valid': password.valid && (password.dirty || password.touched)}" placeholder="mot de passe" type="password"
+			'is-valid': password.valid && (password.dirty || password.touched)}" placeholder="Mot de passe" type="password"
 			class="form-control"
 			formControlName="password"
 			required>
-		<div class="form-control-feedback text-danger" *ngIf="password.errors && (password.dirty || password.touched)">
+		<div class="form-control-feedback invalid-feedback" *ngIf="password.errors && (password.dirty || password.touched)">
 			<p *ngIf="password.errors.required">Le champs Mode de passe est requis</p>
 			<p *ngIf="password.errors.minlength">Le mot de passe doit contenir au moins 1 majuscule, 1 minuscule, 1 chiffre, et doit avoir au moins 8 caractères, il en manque {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}}.</p>
 		</div>
 	</div>
+	<div class="form-group custom-control custom-checkbox mb-3">
+		<input [ngClass]="{
+			'is-invalid': checkTherms.invalid && (checkTherms.dirty || checkTherms.touched),
+			'is-valid': checkTherms.valid && (checkTherms.dirty || checkTherms.touched)}" type="checkbox" class="custom-control-input" id="checkTherms" formControlName="checkTherms" required>
+		<label class="custom-control-label" for="checkTherms">J'accepte les <a routerLink="/mentions-legales">conditions d'utilisation</a></label>
+		<div class="invalid-feedback">Vous devez approuver les conditions d'utilisation du site pour continuer</div>
+	</div>
 	<br>
 	<button type="submit" class="btn btn-primary">Valider</button>
-  <pre>{{myform.value | json}}</pre>
+  	<pre>{{myform.value | json}}</pre>
 </form>

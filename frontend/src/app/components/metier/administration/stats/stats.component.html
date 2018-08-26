@@ -1,42 +1,79 @@
-<div class="card text-center">
-    <div class="card-body text-success">
-		<div class="row">
-			<div class="col">
-				<i class="fa fa-users"></i>
-				<span>165 Membres</span>
-			</div>
-			<div class="col">
-				<i class="fa fa-clipboard"></i>
-				<span>41 Posts vérifiés</span>
-			</div>
-			<div class="col">
-				<i class="fa fa-comments"></i>
-				<span>92 Commentaires</span>
-			</div>
-			<div class="col">
-				<i class="fa fa-thumbs-up"></i>
-				<span>107 J'aimes</span>
+<div class="container bg-light">
+	<div class="row">
+		<div class="col-12 col-lg-6 col-xl-3">
+			<div class="widget widget-tile shadow-sm">
+				<div class="chart sparkline" id="spark1">
+					<i class="fa fa-2x fa-bullhorn text-success"></i>
+				</div>
+				<div class="data-info">
+					<p>Nombre de membres</p>
+					<div>
+						<span><i class="fa fa-angle-up text-success"></i></span>
+						<span class="number">158</span>
+					</div>
+				</div>
 			</div>
 		</div>
-    </div>
-</div>
-<br>
-<div class="row">
-	<div class="col-md-6">
-		<div class="card">
-			<div class="card-body">
-				<h5>Activité ces 6 derniers mois :</h5>
-				<hr>
-				<canvas id="barChart" class="chartjs-render-monitor" style="display: block;"></canvas>
+		<div class="col-12 col-lg-6 col-xl-3">
+			<div class="widget widget-tile shadow-sm">
+				<div class="chart sparkline" id="spark2">
+					<i class="fa fa-2x fa-bullhorn text-success"></i>
+				</div>
+				<div class="data-info">
+				<p>Nombre de posts ce mois</p>
+					<div>
+						<span><i class="fa fa-angle-down text-danger"></i></span>
+						<span class="number">6</span>
+					</div>
+				</div>
 			</div>
-		</div>			
+		</div>
+		<div class="col-12 col-lg-6 col-xl-3">
+			<div class="widget widget-tile shadow-sm">
+				<div class="chart sparkline" id="spark3">
+					<i class="fa fa-2x fa-bullhorn text-success"></i>
+				</div>
+				<div class="data-info">
+				<p>Connexions ce mois</p>
+					<div>
+						<span><i class="fa fa-angle-up text-success"></i></span>
+						<span class="number">78</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-lg-6 col-xl-3">
+			<div class="widget widget-tile shadow-sm">
+				<div class="chart sparkline" id="spark4">
+					<i class="fa fa-2x fa-bullhorn text-success"></i>
+				</div>
+				<div class="data-info">
+					<p>Commentaires ce mois</p>
+					<div>
+						<span><i class="fa fa-angle-up text-success"></i></span>
+						<span class="number">102</span>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="col-md-6 ml-auto">
-		<div class="card">
-			<div class="card-body">
-				<h5>Répartition géographique des membres :</h5>
-				<hr>
-				<canvas id="doughnutChart" class="chartjs-render-monitor" style="display: block;"></canvas>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card shadow-sm">
+				<div class="card-body">
+					<h5>Activité ces 6 derniers mois :</h5>
+					<hr>
+					<canvas id="barChart" class="chartjs-render-monitor" style="display: block;"></canvas>
+				</div>
+			</div>			
+		</div>
+		<div class="col-md-6 ml-auto">
+			<div class="card shadow-sm">
+				<div class="card-body">
+					<h5>Répartition géographique des membres :</h5>
+					<hr>
+					<canvas id="doughnutChart" class="chartjs-render-monitor" style="display: block;"></canvas>
+				</div>
 			</div>
 		</div>
 	</div>

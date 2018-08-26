@@ -8,8 +8,8 @@ import * as Chart from 'chart.js'
 })
 export class StatsComponent implements OnInit {
 
-	private BarChart :any;
-	private DoughnutChart :any;
+	BarChart :any;
+	DoughnutChart :any;
 
   	constructor() { }
 

@@ -6,47 +6,29 @@
 	</div>
 	<br>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-				<h4 class="text-center">Par courrier</h4>
-				<div class="card">
-					<div class="card-body">
-						<p>Commission Nationale de l'Informatique et des Libertés<br>
-						A l'attention du délégué à la protection des données (DPO)<br>
-						3 Place de Fontenoy<br>
-						TSA 80715<br>
-						75334 PARIS CEDEX 07
-						</p>
+		<div class="card">
+			<div class="card-body">
+				<form novalidate [formGroup]="myform">
+					<div class="form-group">
+						<label for="inputObject">Objet du mail</label>
+						<input type="text" class="form-control" [ngClass]="{
+							'is-invalid': object.invalid && (object.dirty || object.touched),
+							'is-valid': object.valid && (object.dirty || object.touched)}" id="inputObject" placeholder="Objet" formControlName="object">
+						<div class="form-control-feedback invalid-feedback" *ngIf="object.errors && (object.dirty || object.touched)">
+							<p *ngIf="object.errors.required">Le champs Objet est requis</p>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div class="col-md-6 ml-auto">
-				<h4 class="text-center">Par email</h4>
-				<div class="card">
-					<div class="card-body">
-						<form novalidate [formGroup]="myform">
-							<div class="form-group">
-								<label for="inputObject">Objet du mail</label>
-								<input type="text" class="form-control" [ngClass]="{
-									'is-invalid': object.invalid && (object.dirty || object.touched),
-									'is-valid': object.valid && (object.dirty || object.touched)}" id="inputObject" placeholder="Objet" formControlName="object">
-								<div class="form-control-feedback" *ngIf="object.errors && (object.dirty || object.touched)">
-									<p class="text-danger" *ngIf="object.errors.required">Le champs Objet est requis</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="question">Message</label>
-								<textarea class="form-control" [ngClass]="{
-									'is-invalid': message.invalid && (message.dirty || message.touched),
-									'is-valid': message.valid && (message.dirty || message.touched)}" id="message" rows="4" placeholder="Message" formControlName="message"></textarea>
-								<div class="form-control-feedback" *ngIf="message.errors && (message.dirty || message.touched)">
-									<p class="text-danger" *ngIf="message.errors.required">Le champs Message est requis</p>
-								</div>
-							</div>
-							<button type="button" class="btn btn-success">Envoyer</button>
-						</form>
+					<div class="form-group">
+						<label for="question">Message</label>
+						<textarea class="form-control" [ngClass]="{
+							'is-invalid': message.invalid && (message.dirty || message.touched),
+							'is-valid': message.valid && (message.dirty || message.touched)}" id="message" rows="4" placeholder="Message" formControlName="message"></textarea>
+						<div class="form-control-feedback invalid-feedback" *ngIf="message.errors && (message.dirty || message.touched)">
+							<p *ngIf="message.errors.required">Le champs Message est requis</p>
+						</div>
 					</div>
-				</div>
+					<button type="button" class="btn btn-success">Envoyer</button>
+				</form>
 			</div>
 		</div>
 	</div>

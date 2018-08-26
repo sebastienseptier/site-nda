@@ -10,8 +10,8 @@ import { Post } from '../../../../models/post';
 })
 export class PostComponent implements OnInit {
 
-	private post: Post;
-	private requestedId: number;
+	post: Post;
+	requestedId: number;
 	
 	constructor(private postService: PostService, private activatedRoute: ActivatedRoute, private router: Router) {
 		this.requestedId = this.activatedRoute.snapshot.params['id'];

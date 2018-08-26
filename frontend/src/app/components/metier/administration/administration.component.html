@@ -1,66 +1,55 @@
 <section>
 	<div class="container">
 		<h2>Espace d'administration</h2>
-		<p>Vous pouvez retrouver ici l'ensemble des informations liées du réseau NDA. Vous pouvez naviguer dans la barre de navigation sur le côté gauche pour parcourir les informations.</p>
+		<p>Vous pouvez retrouver ici l'ensemble des informations liées du réseau NDA. Vous pouvez naviguer dans la barre de navigation ci-dessous pour parcourir les informations.</p>
 	</div>
+	<div class="sticky-top bg-white admin-bar">
+		<ul class="nav nav-tabs nav-underline container" id="myTab" role="tablist">
+			<li class="nav-item">
+				<a class="nav-link active" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="true">
+					<i class="fa fa-info-circle"></i>
+					<span>Statistiques</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="members-tab" data-toggle="tab" href="#members" role="tab" aria-controls="members" aria-selected="true">
+					<i class="fa fa-users"></i>
+					<span>Membres</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">
+					<i class="fa fa-clipboard"></i>
+					<span>Posts</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="comments" aria-selected="true">
+					<i class="fa fa-comments"></i>
+					<span>Commentaires</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	&emsp;
 	<div class="container">
-		<hr>
 		<div class="row">
-			<!--Navigation-->
-			<div class="col-md-2 ml-auto">
-				<ul class="nav nav-tabs list-group list-group-flush" id="myTab" role="tablist">
-					<li class="nav-item">
-						<h6>GENERAL</h6>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="true">
-							<i class="fa fa-info-circle"></i>
-							<span>Statistiques</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<h6>GESTION</h6>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" id="members-tab" data-toggle="tab" href="#members" role="tab" aria-controls="members" aria-selected="true">
-							<i class="fa fa-users"></i>
-							<span>Membres</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">
-							<i class="fa fa-clipboard"></i>
-							<span>Posts</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="comments" aria-selected="true">
-							<i class="fa fa-comments"></i>
-							<span>Commentaires</span>
-						</a>
-					</li>
-				</ul>
-				&emsp;
-			</div>
 			<!--Contenu-->
-			<div class="col-md-10 tab-content" id="myTabContent">
+			<div class="tab-content" id="myTabContent">
 				<!--First item-->
 				<div class="tab-pane fade show active" id="stats" role="tabpanel" aria-labelledby="stats-tab">
 					<app-stats></app-stats>
 				</div>
 				<!--Second item-->
 				<div class="tab-pane fade" id="members" role="tabpanel" aria-labelledby="members-tab">
-					<h5>Gestion des membres</h5>
 					<app-manage-user></app-manage-user>
 				</div>
 				<!--Third item-->
 				<div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-					<h5>Gestion des posts</h5>
 					<app-manage-post></app-manage-post>
 				</div>
 				<!--Fourth item-->
 				<div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
-					<h5>Gestion des commentaires</h5>
 					<app-manage-comment></app-manage-comment>
 				</div>
 			</div>

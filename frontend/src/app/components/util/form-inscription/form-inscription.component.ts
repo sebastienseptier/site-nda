@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '../../../../../node_modules/@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../../models/user';
 
 @Component({
@@ -10,8 +10,7 @@ import { User } from '../../../models/user';
 export class FormInscriptionComponent implements OnInit {
 
 	@Input() user: User;
-	private isFemale = false;
-
+	validateTherms: boolean = false;
 	//Données temporaires permettant de tester le formulaire.
 	promotions = [
 		{id: 1, name: 2000},
@@ -63,18 +62,19 @@ export class FormInscriptionComponent implements OnInit {
 	promotion: FormControl;
 	email: FormControl;
 	password: FormControl;
+	checkTherms: FormControl;
 
 	ngOnInit() {
 		//On définit un nouvel utilisateur s'il le component est utilisé depuis la page d'inscription.
 		if (this.user == undefined) {
 			this.user = { 
-				id: 1, location: { id: 1, town: 'Lille', province: 'Nord', country: 'France'}, group: { id: 1, groupName: '', groupDescription: '', nbMembers: 0}, grade: { id: 1, gradeName: '', gradeDescription: ''}, email: '', password: '', gender: 'male', name: '',
+				id: 1, location: { id: 1, town: '', province: '', country: ''}, group: { id: 1, groupName: '', groupDescription: '', nbMembers: 0}, grade: { id: 1, gradeName: '', gradeDescription: ''}, email: '', password: '', gender: 'male', name: '',
 				surname: '', registrationDate: '', lastConnection: '', isConnected: false, profilPicture: '',
-				description: '', changePassword: false, lockout: false, attempts: 0, birthDate: '', promotion: 2000
+				description: '', changePassword: false, lockout: false, attempts: 0, birthDate: '', promotion: ''
 			}
 		}
 		else {
-			this.isFemale = this.user.gender == 'female';
+			this.validateTherms = true;
 		}
 		this.createFormControls();
 		this.createForm();
@@ -97,6 +97,7 @@ export class FormInscriptionComponent implements OnInit {
 			Validators.minLength(8),
 			Validators.pattern("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,16})")
 		]);
+		this.checkTherms = new FormControl(this.validateTherms, Validators.required);
 	}
 	
 	createForm() {
@@ -111,7 +112,8 @@ export class FormInscriptionComponent implements OnInit {
 			birthDate: this.birthDate,
 			promotion: this.promotion,
 			email: this.email,
-			password: this.password
+			password: this.password,
+			checkTherms: this.checkTherms
 		});
 	}
 }

@@ -3,23 +3,40 @@
 		<h2>Publier un post</h2>
 		<small class="form-text text-muted">Note: Votre post sera visible par les autres membres lorsqu'il sera validé par un modérateur.</small>
 		<hr>
-		<form>
+		<form novalidate [formGroup]="myform">
 			<div class="col-12 col-md-8">
 				<div class="form-group">
 					<label for="inputPostTitle">Titre</label>
-					<input type="text" class="form-control" id="inputPostTitle" placeholder="Titre">
+					<input type="text" [ngClass]="{
+						'is-invalid': title.invalid && (title.dirty || title.touched),
+						'is-valid': title.valid && (title.dirty || title.touched)}" class="form-control" id="inputPostTitle" placeholder="Titre" formControlName="title">
+					<div class="form-control-feedback invalid-feedback" *ngIf="title.errors && (title.dirty || title.touched)">
+						<p *ngIf="title.errors.required">Le champs Titre est requis</p>
+					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputTag">Selectionnez un tag</label>
-					<select id="inputTag" class="form-control">
-						<option selected>Voyage</option>
-						<option>Travail</option>
+					<label for="inputTag">Rubrique</label>
+					<select #select formControlName="tag" id="inputTag" class="form-control" [ngClass]="{
+						'is-invalid': tag.invalid && (tag.dirty || tag.touched),
+						'is-valid': tag.valid && (tag.dirty || tag.touched)}">
+						<option value="">Choisissez une rubrique</option>
+						<option value="Travail">Travail</option>
+						<option value="Voyage">Voyage</option>
 						<option>...</option>
 					</select>
+					<div class="form-control-feedback invalid-feedback" *ngIf="tag.errors && (tag.dirty || tag.touched)">
+						<p *ngIf="tag.errors.required">Le champs Rubrique est requis</p>
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputContent">Contenu</label>
-					<textarea id="inputContent" class="form-control" rows="6" placeholder="Rédigez votre post ici"></textarea>
+					<textarea id="inputContent" [ngClass]="{
+						'is-invalid': content.invalid && (content.dirty || content.touched),
+						'is-valid': content.valid && (content.dirty || content.touched)}" class="form-control" rows="6" placeholder="Rédigez votre post ici" formControlName="content"></textarea>
+					<div class="form-control-feedback invalid-feedback" *ngIf="content.errors && (content.dirty || content.touched)">
+						<p *ngIf="content.errors.required">Le champs Contenu est requis</p>
+					</div>
+					<input type="file" name="myFile">
 				</div>
 			</div>
 			<hr>
