@@ -1,6 +1,10 @@
-<form novalidate [formGroup]="myform">
+<!-- Custom Success/Error Message -->
+<form [formGroup]="myform" (submit)="onLoginSubmit()">
+	<div class="row show-hide-message">
+		<p [ngClass]="messageClass">{{ message }}</p>
+	</div>
 	<div class="form-group col-md-6">
-		<label for="inputEmail">Adresse email</label>
+		<label for="inputEmail">Adresse email (ex: xavier@mail.fr)</label>
 		<input type="email" class="form-control" formControlName="email" [ngClass]="{
 			'is-invalid': email.invalid && (email.dirty || email.touched),
 			'is-valid': email.valid && (email.dirty || email.touched)}" id="inputEmail" placeholder="Adresse email" required>
@@ -10,7 +14,7 @@
 		</div>
 	</div>
 	<div class="form-group col-md-6">
-		<label for="inputPassword">Mot de passe</label>
+		<label for="inputPassword">Mot de passe (ex: Password59!)</label>
 		<input [ngClass]="{
 			'is-invalid': password.invalid && (password.dirty || password.touched),
 			'is-valid': password.valid && (password.dirty || password.touched)}" id="inputPassword" placeholder="mot de passe" type="password"
@@ -19,9 +23,9 @@
 			required>
 		<div class="form-control-feedback invalid-feedback" *ngIf="password.errors && (password.dirty || password.touched)">
 			<p *ngIf="password.errors.required">Le champs Mode de passe est requis</p>
-			<p *ngIf="password.errors.minlength">Le mot de passe doit contenir au moins 1 majuscule, 1 minuscule, 1 chiffre, et doit avoir au moins 8 caractères, il en manque {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}}.</p>
+			<p *ngIf="password.errors.minlength">Le mot de passe doit contenir au moins 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial, et doit avoir au moins 8 caractères, il en manque {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}}.</p>
 		</div>
 	</div>
 	<br>
-	<button type="submit" class="btn btn-primary">Valider</button>
+	<button [disabled]="!myform.valid" type="submit" class="btn btn-primary">Valider</button>
 </form>

@@ -36,6 +36,9 @@ import { ManageCommentComponent } from './components/metier/administration/manag
 import { FormParametersComponent } from './components/util/form-parameters/form-parameters.component';
 import { ThermsPrivacyComponent } from './components/metier/therms-privacy/therms-privacy.component';
 import { ContactsComponent } from './components/metier/contacts/contacts.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './guards/auth-guard.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   	declarations: [
@@ -72,9 +75,10 @@ import { ContactsComponent } from './components/metier/contacts/contacts.compone
 		BrowserModule,
 		AppRoutingModule,
 		FormsModule,
-        ReactiveFormsModule
+		ReactiveFormsModule,
+		HttpModule
 	  ],
-  		providers: [CommentService, PostService, PaginationService, UserService],
+  		providers: [CommentService, PostService, PaginationService, UserService, AuthService, AuthGuardService],
   		bootstrap: [AppComponent]
 })
 export class AppModule {}
