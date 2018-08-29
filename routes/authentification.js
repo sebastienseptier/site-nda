@@ -22,9 +22,15 @@ module.exports = (router) => {
                 } else {
                     // Create new user object and apply user input
                     let user = new User({
-                        email: req.body.email.toLowerCase(),
-                        firstName: req.body.firstName.toLowerCase(),
-                        password: req.body.password
+                        email: req.body.email,
+                        firstName: req.body.firstName,
+                        lastName: req.body.lastName,
+                        password: req.body.password,
+                        promotion: req.body.promotion,
+                        province: req.body.province,
+                        town: req.body.town,
+                        birthDate: req.body.birthDate,
+                        gender: req.body.gender
                     });
                     // Save user to database
                     user.save((err) => {
@@ -73,7 +79,7 @@ module.exports = (router) => {
     router.get('/checkEmail/:email', (req, res) => {
         // Check if email was provided in paramaters
         if (!req.params.email) {
-        res.json({ success: false, message: 'E-mail was not provided' }); // Return error
+            res.json({ success: false, message: 'E-mail was not provided' }); // Return error
         } else {
         // Search for user's e-mail in database;
         User.findOne({ email: req.params.email }, (err, user) => {

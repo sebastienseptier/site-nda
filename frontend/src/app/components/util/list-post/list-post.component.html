@@ -7,7 +7,7 @@
 			<h3 class="mb-0">
 				<a class="text-dark" routerLink="/posts/{{ post.id }}">{{ post.title }}</a>
 			</h3>
-			<div class="mb-1 text-muted">{{ post.date }} ⋅ <a routerLink="/membres/{{ post.author.id }}">{{ post.author.name }} {{ post.author.surname }}</a></div>
+			<div class="mb-1 text-muted">{{ post.date }} ⋅ <a routerLink="/membres/{{ post.author.id }}">{{ post.author.firstName }} {{ post.author.lastName }}</a></div>
 			<p class="card-text mb-auto">{{ post.content | slice:0:200 }}{{ post.content.length > 20 ? '[...]' : ''}}</p>
 			<a routerLink="/posts/{{ post.id }}">Lire l'article</a>
 		</div>

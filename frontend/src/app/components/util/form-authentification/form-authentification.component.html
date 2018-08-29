@@ -1,6 +1,6 @@
-<!-- Custom Success/Error Message -->
 <form [formGroup]="myform" (submit)="onLoginSubmit()">
-	<div class="row show-hide-message">
+	<!-- Custom Success/Error Message -->
+	<div class="form-group col-md-6 show-hide-message">
 		<p [ngClass]="messageClass">{{ message }}</p>
 	</div>
 	<div class="form-group col-md-6">

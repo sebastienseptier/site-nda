@@ -27,13 +27,13 @@ export class TableComponent implements OnInit {
 		//Définit le colonne de recherche suivant le type de donnée reçue.
 		switch(this.type) {
 			case 'user':
-				this.searchProperty = 'name';
+				this.searchProperty = 'firstName';
 			break;
 			case 'post':
 				this.searchProperty = 'title';
 			break;
 			case 'comment':
-				this.searchProperty = 'author.name';
+				this.searchProperty = 'author.firstName';
 			break;
 			default:
 				this.searchProperty = 'id';

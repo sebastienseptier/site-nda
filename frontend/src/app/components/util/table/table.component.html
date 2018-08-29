@@ -11,11 +11,11 @@
 			<th scope="col" (click)="setPage(1, 'id')">Id
 				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'id' && !isDesc),'fa-angle-up': (column == 'id' && isDesc) }" aria-hidden="true"></i>
 			</th>
-			<th scope="col" (click)="setPage(1, 'name')">Prénom
-				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'name' && !isDesc),'fa-angle-up': (column == 'name' && isDesc) }" aria-hidden="true"></i>
+			<th scope="col" (click)="setPage(1, 'firstName')">Prénom
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'firstName' && !isDesc),'fa-angle-up': (column == 'firstName' && isDesc) }" aria-hidden="true"></i>
 			</th>
-			<th scope="col" (click)="setPage(1, 'surname')">Nom
-				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'surname' && !isDesc),'fa-angle-up': (column == 'surname' && isDesc) }" aria-hidden="true"></i>
+			<th scope="col" (click)="setPage(1, 'lastName')">Nom
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'lastName' && !isDesc),'fa-angle-up': (column == 'lastName' && isDesc) }" aria-hidden="true"></i>
 			</th>
 			<th scope="col" (click)="setPage(1, 'location.town')">Ville
 				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'town' && !isDesc),'fa-angle-up': (column == 'town' && isDesc) }" aria-hidden="true"></i>
@@ -34,8 +34,8 @@
 			<td scope="row">
 				<img class="profil-pic" src="{{ data.profilPicture }}" alt="Avatar">
 			</td>
-			<td><a routerLink="/membres/{{ data.id }}">{{ data.name }}</a></td>
-			<td>{{ data.surname }}</td>
+			<td><a routerLink="/membres/{{ data.id }}">{{ data.firstName }}</a></td>
+			<td>{{ data.lastName }}</td>
 			<td>{{ data.location.town }}</td>
 			<td>{{ data.location.province }}</td>
 			<td><span class="lead badge" [ngClass]="{'badge-warning': data.grade.id==2, 'badge-danger': data.grade.id==3, 'badge-success': data.grade.id==1}" title="{{ data.grade.description }}">{{ data.grade.gradeName }}</span></td>
@@ -59,11 +59,11 @@
 			<th scope="col" (click)="setPage(1, 'id')">Id
 				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'id' && !isDesc),'fa-angle-up': (column == 'id' && isDesc) }" aria-hidden="true"></i>
 			</th>
-			<th scope="col" (click)="setPage(1, 'name')">Prénom
-				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'name' && !isDesc),'fa-angle-up': (column == 'name' && isDesc) }" aria-hidden="true"></i>
+			<th scope="col" (click)="setPage(1, 'firstName')">Prénom
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'firstName' && !isDesc),'fa-angle-up': (column == 'firstName' && isDesc) }" aria-hidden="true"></i>
 			</th>
-			<th scope="col" (click)="setPage(1, 'surname')">Nom
-				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'surname' && !isDesc),'fa-angle-up': (column == 'surname' && isDesc) }" aria-hidden="true"></i>
+			<th scope="col" (click)="setPage(1, 'lastName')">Nom
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'lastName' && !isDesc),'fa-angle-up': (column == 'lastName' && isDesc) }" aria-hidden="true"></i>
 			</th>
 			<th scope="col" (click)="setPage(1, 'location.town')">Ville
 				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'town' && !isDesc),'fa-angle-up': (column == 'town' && isDesc) }" aria-hidden="true"></i>
@@ -81,8 +81,8 @@
 			<td scope="row">
 				<img class="profil-pic" src="{{ data.profilPicture }}" alt="Avatar">
 			</td>
-			<td><a routerLink="/membres/{{ data.id }}">{{ data.name }}</a></td>
-			<td>{{ data.surname }}</td>
+			<td><a routerLink="/membres/{{ data.id }}">{{ data.firstName }}</a></td>
+			<td>{{ data.lastName }}</td>
 			<td>{{ data.location.town }}</td>
 			<td>{{ data.location.province }}</td>
 			<td><span class="lead badge" [ngClass]="{'badge-warning': data.grade.id==2, 'badge-danger': data.grade.id==3, 'badge-success': data.grade.id==1}" title="{{ data.grade.description }}">{{ data.grade.gradeName }}</span></td>
@@ -102,8 +102,8 @@
 			<th scope="col" (click)="setPage(1, 'title')">Titre
 				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'title' && !isDesc),'fa-angle-up': (column == 'title' && isDesc) }" aria-hidden="true"></i>
 			</th>
-			<th scope="col" (click)="setPage(1, 'author.name')">Auteur
-				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'name' && !isDesc),'fa-angle-up': (column == 'name' && isDesc) }" aria-hidden="true"></i>
+			<th scope="col" (click)="setPage(1, 'author.firstName')">Auteur
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'firstName' && !isDesc),'fa-angle-up': (column == 'firstName' && isDesc) }" aria-hidden="true"></i>
 			</th>
 			<th scope="col" (click)="setPage(1, 'content')">Contenu
 				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'content' && !isDesc),'fa-angle-up': (column == 'content' && isDesc) }" aria-hidden="true"></i>
@@ -125,7 +125,7 @@
 				<i *ngIf="!data.validate" class="fa fa-times text-danger"></i>
 			</td>
 			<td><a routerLink="/posts/{{ data.id }}">{{ data.title }}</a></td>
-			<td><a routerLink="/membres/{{ data.author.id }}">{{ data.author.name }} {{ data.author.surname }}</a></td>
+			<td><a routerLink="/membres/{{ data.author.id }}">{{ data.author.firstName }} {{ data.author.lastName }}</a></td>
 			<td><small>{{ data.content }}</small></td>
 			<td>{{ data.date }}</td>
 			<td>{{ data.tag }}</td>
@@ -152,8 +152,8 @@
 			<th scope="col" (click)="setPage(1, 'postId')">Id post
 				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'postId' && !isDesc),'fa-angle-up': (column == 'postId' && isDesc) }" aria-hidden="true"></i>
 			</th>
-			<th scope="col" (click)="setPage(1, 'author.name')">Auteur
-				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'name' && !isDesc),'fa-angle-up': (column == 'name' && isDesc) }" aria-hidden="true"></i>
+			<th scope="col" (click)="setPage(1, 'author.firstName')">Auteur
+				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'firstName' && !isDesc),'fa-angle-up': (column == 'firstName' && isDesc) }" aria-hidden="true"></i>
 			</th>
 			<th scope="col" (click)="setPage(1, 'content')">Contenu
 				<i class="fa" [ngClass]="{'fa-angle-down': (column == 'content' && !isDesc),'fa-angle-up': (column == 'content' && isDesc) }" aria-hidden="true"></i>
@@ -168,7 +168,7 @@
 		<tr *ngFor="let data of pagedData">
 			<th scope="row">{{ data.id }}</th>
 			<td><a routerLink="/posts/{{ data.postId }}">{{ data.postId }}</a></td>
-			<td>{{ data.author.name }} {{ data.author.surname }}</td>
+			<td>{{ data.author.firstName }} {{ data.author.lastName }}</td>
 			<td>{{ data.content }}</td>
 			<td>{{ data.date }}</td>
 			<td class="text-right">

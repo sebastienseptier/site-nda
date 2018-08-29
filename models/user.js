@@ -64,7 +64,7 @@ let firstNameLengthChecker = (firstName) => {
 };
 
 // Validate Function to check lastname length
-let lastNameLengthChecker = (firstName) => {
+let lastNameLengthChecker = (lastName) => {
     // Check if lastname exists
     if (!lastName) {
         return false; // Return error
@@ -91,7 +91,7 @@ let validFirstName = (firstName) => {
 };
 
 // Validate Function to check if valid lastname format
-let validLastName = (firstName) => {
+let validLastName = (lastName) => {
     // Check if lastname exists
     if (!lastName) {
         return false; // Return error

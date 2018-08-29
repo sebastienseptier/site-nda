@@ -4,7 +4,7 @@
 		<div class="media">
 			<img class="profil-pic" src="{{ user.profilPicture }}" alt="">
 			<div class="media-body ml-3">
-				<h1 class="mb-0">{{ user.name }} {{ user.surname }}</h1>
+				<h1 class="mb-0">{{ user.firstName }} {{ user.lastName }}</h1>
 				<span class="lead badge" [ngClass]="{'badge-warning': user.grade.id==2, 'badge-danger': user.grade.id==3, 'badge-success': user.grade.id==1}" title="{{ user.grade.gradeDescription }}">{{ user.grade.gradeName }}</span>
 				<p class="lead">{{ user.location.town }}, {{ user.location.province }}, {{ user.location.country }}</p>
 			</div>
