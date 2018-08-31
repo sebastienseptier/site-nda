@@ -74,7 +74,7 @@ const contentValidators = [
 const postSchema = new Schema({
     title: { type: String, required: true, validate: titleValidators },
     content: { type: String, required: true, validate: bodyValidators },
-    author: { type: String },
+    author: { type: String, required: true, },
     date: { type: Date, default: Date.now() },
     coverPictureLink: { type: String },
     tag: { type: String }

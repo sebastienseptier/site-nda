@@ -3,11 +3,11 @@ const jwt = require('jsonwebtoken'); // Compact, URL-safe means of representing 
 const config = require('../config/database'); // Import database configuration
 
 module.exports = (router) => {
+
     /**
-     * Register route
+     * Route permettant d'inscrire un utilisateur.
      */
     router.post('/register', (req, res) => {
-        console.log(req.body);
         // Check if email was provided
         if (!req.body.email) {
             res.json({ success: false, message: 'Vous devez fournir une adresse email.' }); // Return error
@@ -93,10 +93,9 @@ module.exports = (router) => {
     });
 
     /**
-     * Login route
+     * Route permettant d'authentifier un utilisateur.
      */
     router.post('/login', (req, res) => {
-        console.log(req.body);
         // Check if email was provided in paramaters
         if (!req.body.email) {
             res.json({ success: false, message: 'Vous devez fournir une adresse email.' }); // Return error
@@ -140,7 +139,7 @@ module.exports = (router) => {
     });
 
     /**
-     * MIDDLEWARE - Used to grab user's token from headers
+     * MIDDLEWARE - Permet de récupérer le token de l'utilisateur depuis le header
      */
     router.use((req, res, next) => {
         const token = req.headers['authorization']; // Create token found in headers
@@ -148,43 +147,18 @@ module.exports = (router) => {
         if (!token) {
             res.json({ success: false, message: 'Aucun token fourni.' }); // Return error
         } else {
-        // Verify the token is valid
-        jwt.verify(token, config.secret, (err, decoded) => {
-            // Check if error is expired or invalid
-            if (err) {
-                res.json({ success: false, message: 'Token invalide: ' + err }); // Return error for token validation
-            } else {
-                req.decoded = decoded; // Create global variable to use in any request beyond
-                next(); // Exit middleware
-            }
-        });
-        }
-    });
-
-    /**
-     * Route to get user's profile data
-     */
-    router.get('/profile/:id', (req, res) => {
-        // Check if id is present in parameters
-        if (!req.params.id) {
-            res.json({ success: false, message: 'No user ID was provided.' }); // Return error message
-        } else {
-            // Check if the user id is found in database
-            User.findOne({ _id: req.params.id }, (err, user) => {
-                // Check if the id is a valid ID
+            // Verify the token is valid
+            jwt.verify(token, config.secret, (err, decoded) => {
+                // Check if error is expired or invalid
                 if (err) {
-                    res.json({ success: false, message: 'Not a valid user id' }); // Return error message
+                    res.json({ success: false, message: 'Token invalide: ' + err }); // Return error for token validation
                 } else {
-                    // Check if user was found by id
-                    if (!user) {
-                        res.json({ success: false, message: 'User not found.' }); // Return error message
-                    } else {
-                        res.json({ success: true, user: user }); // Return success
-                    }
+                    req.decoded = decoded; // Create global variable to use in any request beyond
+                    next(); // Exit middleware
                 }
             });
         }
     });
 
-    return router; // Return router object to main index.js
+    return router; // Return router object to main app.js
 }
