@@ -27,7 +27,7 @@ export class FormAuthentificationComponent implements OnInit {
 		// On page load, check if user was redirected to login
 		if (this.authGuard.redirectUrl) {
 			this.messageClass = 'alert alert-danger'; // Set error message: need to login
-			this.message = 'You must be logged in to view that page.'; // Set message
+			this.message = 'Veuillez vous connecter pour avoir accès à cette page.'; // Set message
 			this.previousUrl = this.authGuard.redirectUrl; // Set the previous URL user was redirected from
 			this.authGuard.redirectUrl = undefined; // Erase previous URL
 	  	}
@@ -64,9 +64,8 @@ export class FormAuthentificationComponent implements OnInit {
 		this.myform.controls['password'].enable(); // Enable password field
 	}
 
-	// Functiont to submit form and login user
+	// Function to submit form and login user
 	onLoginSubmit() {
-		console.log('TEST');
 		this.processing = true; // Used to submit button while is being processed
 		this.disableForm(); // Disable form while being process
 		// Create user object from user's input
@@ -74,18 +73,15 @@ export class FormAuthentificationComponent implements OnInit {
 			"email": this.myform.get('email').value,
 			"password": this.myform.get('password').value
 		};
-		console.log('Sending: '+user.email+' & '+user.password);
 		// Function to send login data to API
 		this.authService.login(user).subscribe(data => {
-			console.log(data);
 		  // Check if response was a success or error
 		  if (!data.success) {
-			  	console.log('problem!');
 				this.messageClass = 'alert alert-danger'; // Set bootstrap error class
 				this.message = data.message; // Set error message
 				this.processing = false; // Enable submit button
 				this.enableForm(); // Enable form for editting
-		  } else {console.log('OK!');
+		  } else {
 				this.messageClass = 'alert alert-success'; // Set bootstrap success class
 				this.message = data.message; // Set success message
 				// Function to store user's token in client local storage
@@ -96,7 +92,7 @@ export class FormAuthentificationComponent implements OnInit {
 					if (this.previousUrl) {
 						this.router.navigate([this.previousUrl]); // Redirect to page they were trying to view before
 					} else {
-						this.router.navigate(['/']); // Navigate to dashboard view
+						this.router.navigate(['/']); // Navigate to home view
 					}
 				}, 2000);
 		  	}

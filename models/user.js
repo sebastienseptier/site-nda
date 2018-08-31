@@ -5,7 +5,7 @@ const mongoose = require('mongoose'); // Node Tool for MongoDB
 mongoose.Promise = global.Promise; // Configure Mongoose Promises
 const Schema = mongoose.Schema; // Import Schema from Mongoose
 const bcrypt = require('bcryptjs'); // A native JS bcrypt library for NodeJS
-var BCRYPT_SALT_ROUNDS = 12;
+const BCRYPT_SALT_ROUNDS = 12;
 
 // Validate Function to check e-mail length
 let emailLengthChecker = (email) => {
@@ -78,27 +78,15 @@ let lastNameLengthChecker = (lastName) => {
     }
 };
 
-// Validate Function to check if valid firstname format
-let validFirstName = (firstName) => {
-    // Check if firstname exists
-    if (!firstName) {
+// Validate Function to check if valid text format
+let validText = (text) => {
+    // Check if text exists
+    if (!text) {
         return false; // Return error
     } else {
-        // Regular expression to test if firstname format is valid
+        // Regular expression to test if text format is valid
         const regExp = new RegExp(/^[a-zA-Z]+$/);
-        return regExp.test(firstName); // Return regular expression test result (true or false)
-    }
-};
-
-// Validate Function to check if valid lastname format
-let validLastName = (lastName) => {
-    // Check if lastname exists
-    if (!lastName) {
-        return false; // Return error
-    } else {
-        // Regular expression to test if lastname format is valid
-        const regExp = new RegExp(/^[a-zA-Z]+$/);
-        return regExp.test(lastName); // Return regular expression test result (true or false)
+        return regExp.test(text); // Return regular expression test result (true or false)
     }
 };
 
@@ -111,7 +99,7 @@ const firstNameValidators = [
     },
     // Second firstname validator
     {
-        validator: validFirstName,
+        validator: validText,
         message: 'Firstname must not have any special characters'
     }
 ];
@@ -125,8 +113,36 @@ const lastNameValidators = [
     },
     // Second lastname validator
     {
-        validator: validLastName,
+        validator: validText,
         message: 'Lastname must not have any special characters'
+    }
+];
+
+// Validate Function to check if valid number format
+let validNumber = (number) => {
+    // Check if text exists
+    if (!number) {
+        return false; // Return error
+    } else {
+        // Regular expression to test if text format is valid
+        const regExp = new RegExp(/^[0-9]+$/);
+        return regExp.test(number); // Return regular expression test result (true or false)
+    }
+};
+
+// Array of promotion validators
+const promotionValidators = [
+    {
+        validator: validNumber,
+        message: 'Promotion must not have any special characters or letters'
+    }
+];
+
+// Array of gender validators
+const genderValidators = [
+    {
+        validator: validText,
+        message: 'Gender must not have any special characters'
     }
 ];
 
@@ -137,7 +153,7 @@ let passwordLengthChecker = (password) => {
         return false; // Return error
     } else {
         // Check password length
-        if (password.length < 8 || password.length > 35) {
+        if (password.length < 8 || password.length > 16) {
             return false; // Return error if passord length requirement is not met
         } else {
             return true; // Return password as valid
@@ -152,7 +168,7 @@ let validPassword = (password) => {
         return false; // Return error
     } else {
         // Regular Expression to test if password is valid format
-        const regExp = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/);
+        const regExp = new RegExp(/^((?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,16})$/);
         return regExp.test(password); // Return regular expression test result (true or false)
     }
 };
@@ -174,9 +190,23 @@ const passwordValidators = [
 // User Model Definition
 const userSchema = new Schema({
     email: { type: String, required: true, unique: true, lowercase: true, validate: emailValidators },
-    firstName: { type: String, required: true, lowercase: true, validate: firstNameValidators },
-    lastName: { type: String, required: true, lowercase: true, validate: lastNameValidators },
-    password: { type: String, required: true, validate: passwordValidators }
+    firstName: { type: String, required: true, validate: firstNameValidators },
+    lastName: { type: String, required: true, validate: lastNameValidators },
+    password: { type: String, required: true, validate: passwordValidators },
+    promotion: { type: String, required: true, validate: promotionValidators },
+    province: { type: String, required: true },
+    town: { type: String, required: true },
+    birthDate: { type: String, required: true },
+    gender: { type: String, required: true, validate: genderValidators },
+	group: { type: String, required: true },
+	grade: { type: String, required: true },
+	registrationDate: { type: String, required: true },
+	lastConnection: { type: String, required: true },
+	profilPicture: { type: String, required: true },
+	description: { type: String, required: true },
+	changePassword: { type: Boolean, required: true },
+	lockout: { type: Boolean, required: true },
+	attempts: { type: Number, required: true },
 });
 
 // Schema Middleware to Encrypt Password

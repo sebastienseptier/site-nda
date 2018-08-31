@@ -12,16 +12,18 @@ import { NotFoundComponent } from './components/metier/not-found/not-found.compo
 import { HomeComponent } from './components/metier/home/home.component';
 import { ThermsPrivacyComponent } from './components/metier/therms-privacy/therms-privacy.component';
 import { ContactsComponent } from './components/metier/contacts/contacts.component';
+import { AuthGuardService } from './guards/auth-guard.service';
+import { NotAuthGuardService } from './guards/not-auth-guard.service';
 
 const appRoutes: Routes = [
-	{ path: 'authentification', component: PortalComponent},
-	{ path: 'inscription', component: PortalComponent},
-	{ path: 'posts', component: PostsComponent},
-	{ path: 'posts/:id', component: PostComponent},
-	{ path: 'nouveau-post', component: FormPostComponent},
-	{ path: 'membres', component: UsersComponent},
-	{ path: 'membres/:id', component: UserComponent},
-	{ path: 'administration', component: AdministrationComponent},
+	{ path: 'authentification', component: PortalComponent, canActivate: [NotAuthGuardService]},
+	{ path: 'inscription', component: PortalComponent, canActivate: [NotAuthGuardService]},
+	{ path: 'posts', component: PostsComponent, canActivate: [AuthGuardService]},
+	{ path: 'posts/:id', component: PostComponent, canActivate: [AuthGuardService]},
+	{ path: 'nouveau-post', component: FormPostComponent, canActivate: [AuthGuardService]},
+	{ path: 'membres', component: UsersComponent, canActivate: [AuthGuardService]},
+	{ path: 'membres/:id', component: UserComponent, canActivate: [AuthGuardService]},
+	{ path: 'administration', component: AdministrationComponent, canActivate: [AuthGuardService]},
 	{ path: 'apropos', component: AboutComponent},
 	{ path: 'contacts', component: ContactsComponent},
 	{ path: 'mentions-legales', component: ThermsPrivacyComponent},

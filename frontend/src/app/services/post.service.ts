@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export class PostService {
 
 	//Données temporaires, permet de tester l'utilisation des données.
-  	posts = [
+  	posts = [/*
 		{ 	id: 1,
 			title: 'First post',
 			author: { 	id: 6,
@@ -148,7 +148,7 @@ export class PostService {
 			coverPictureLink: '../../../assets/photo_entry.jpg',
 			tag: 'Photographie',
 			validate: false
-		}
+		}*/
 	];
 
 	tags = ['Boite à idées', 'Culture', 'Papotages & souvenirs', 'Associations & clubs', 'Evénements', 'Jobs [Offres et demandes]'];

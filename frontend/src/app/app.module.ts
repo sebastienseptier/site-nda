@@ -39,6 +39,7 @@ import { ContactsComponent } from './components/metier/contacts/contacts.compone
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { HttpModule } from '@angular/http';
+import { NotAuthGuardService } from './guards/not-auth-guard.service';
 
 @NgModule({
   	declarations: [
@@ -78,7 +79,8 @@ import { HttpModule } from '@angular/http';
 		ReactiveFormsModule,
 		HttpModule
 	  ],
-  		providers: [CommentService, PostService, PaginationService, UserService, AuthService, AuthGuardService],
+		providers: [CommentService, PostService, PaginationService, UserService,
+					AuthService, AuthGuardService, NotAuthGuardService],
   		bootstrap: [AppComponent]
 })
 export class AppModule {}

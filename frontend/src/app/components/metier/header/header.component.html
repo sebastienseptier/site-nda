@@ -35,8 +35,8 @@
 					</a>
 					<div class="dropdown">
 						<div class="dropdown-menu top-line shadow-sm" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" routerLink="/membres/10"><i class="fa fa-user"></i> Mon profil</a>
-							<a class="dropdown-item" routerLink="/"><i class="fa fa-sign-out"></i> Se déconnecter</a>
+							<a class="dropdown-item" routerLink="/membres/{{ userId }}"><i class="fa fa-user"></i> Mon profil</a>
+							<a class="dropdown-item" (click)="logOut()" routerLink="/"><i class="fa fa-sign-out"></i> Se déconnecter</a>
 						</div>
 					</div>
 				</li>
@@ -48,10 +48,10 @@
 			</ul>
 			<ul *ngIf="authService.isLoggedIn()" class="navbar-nav d-lg-none">
 				<li class="nav-item">
-					<hr><a class="nav-link" routerLink="/membres/10"><i class="fa fa-user"></i> Mon profile</a>
+					<hr><a class="nav-link" routerLink="/membres/{{ userId }}"><i class="fa fa-user"></i> Mon profile</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="/"><i class="fa fa-sign-out"></i> Se déconnecter</a>	
+					<a class="nav-link" (click)="logOut()" routerLink="/"><i class="fa fa-sign-out"></i> Se déconnecter</a>	
 				</li>
 			</ul>
 		</div>

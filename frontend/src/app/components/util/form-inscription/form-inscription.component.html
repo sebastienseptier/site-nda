@@ -30,7 +30,7 @@
 		<input [ngClass]="{
 		'is-invalid': myform.controls.lastName.invalid && (myform.controls.lastName.dirty || myform.controls.lastName.touched),
 		'is-valid': myform.controls.lastName.valid && (myform.controls.lastName.dirty || myform.controls.lastName.touched)}" name="lastName" placeholder="Nom" type="text"
-		class="form-control"
+		class="form-control" id="inputLastName"
 		formControlName="lastName"
 		required>
 		<div class="form-control-feedback invalid-feedback" *ngIf="myform.controls.lastName.errors && (myform.controls.lastName.dirty || myform.controls.lastName.touched)">
@@ -91,7 +91,6 @@
 			'is-valid': myform.controls.email.valid && (myform.controls.email.dirty || myform.controls.email.touched)}" name="emailAddress" placeholder="email" type="email"
 			class="form-control"
 			formControlName="email"
-			(blur)="checkEmail()"
 			required>
 		<div class="form-control-feedback invalid-feedback" *ngIf="myform.controls.email.errors && (myform.controls.email.dirty || myform.controls.email.touched)">
 			<p *ngIf="myform.controls.email.errors.required">Le champ Adresse email est requis</p>

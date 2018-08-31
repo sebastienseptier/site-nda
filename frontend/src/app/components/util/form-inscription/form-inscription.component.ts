@@ -17,10 +17,6 @@ export class FormInscriptionComponent implements OnInit {
 	message;
 	messageClass;
 	processing = false;
-	emailValid;
-	emailMessage;
-	usernameValid;
-	usernameMessage;
 	  
 	//Données temporaires permettant de tester le formulaire.
 	promotions = [
@@ -80,8 +76,8 @@ export class FormInscriptionComponent implements OnInit {
 		//On définit un nouvel utilisateur s'il le component est utilisé depuis la page d'inscription.
 		if (this.user == undefined) {
 			this.user = { 
-				id: 1, location: { id: 1, town: '', province: '', country: ''}, group: { id: 1, groupName: '', groupDescription: '', nbMembers: 0}, grade: { id: 1, gradeName: '', gradeDescription: ''}, email: '', password: '', gender: 'male', firstName: '',
-				lastName: '', registrationDate: '', lastConnection: '', isConnected: false, profilPicture: '',
+				id: '1', town: '', province: '', group: '', grade: '', email: '', password: '', gender: 'male', firstName: '',
+				lastName: '', registrationDate: '', lastConnection: '',  profilPicture: '',
 				description: '', changePassword: false, lockout: false, attempts: 0, birthDate: '', promotion: ''
 			}
 		}
@@ -100,8 +96,8 @@ export class FormInscriptionComponent implements OnInit {
 			gender: [this.user.gender, Validators.required],
 			firstName: [this.user.firstName, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
 			lastName: [this.user.lastName, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-			province: [this.user.location.province, Validators.required],
-			town: [this.user.location.town, Validators.required],
+			province: [this.user.province, Validators.required],
+			town: [this.user.town, Validators.required],
 			birthDate: [this.user.birthDate, Validators.required],
 			promotion: [this.user.promotion, Validators.required],
 			email: [this.user.email, [
@@ -160,13 +156,14 @@ export class FormInscriptionComponent implements OnInit {
 		this.myform.controls['birthDate'].enable();
 		this.myform.controls['gender'].enable();
 	}
-	
+
 	// Function to submit form
 	onRegisterSubmit() {
 		this.processing = true; // Used to notify HTML that form is in processing, so that it can be disabled
 		this.disableForm(); // Disable the form
+		const currentDate = new Date().toJSON().slice(0,10);
 		// Create user object form user's inputs
-		const user = {
+		const userObj = {
 			email: this.myform.get('email').value,
 			firstName: this.capitalizeFirstLetter(this.myform.get('firstName').value),
 			lastName: this.myform.get('lastName').value.toUpperCase(),
@@ -175,12 +172,22 @@ export class FormInscriptionComponent implements OnInit {
 			province: this.myform.get('province').value,
 			town: this.myform.get('town').value,
 			birthDate: this.myform.get('birthDate').value,
-			gender: this.myform.get('gender').value
+			gender: this.myform.get('gender').value,
+			group: 'Promotion-'+this.myform.get('promotion').value,
+			grade: 'Membre',
+			registrationDate: currentDate,
+			lastConnection: currentDate,
+			profilPicture: '../../../assets/user.svg',
+			description: 'Rédigez une description ici.',
+			changePassword: false,
+			lockout: false,
+			attempts: 0
 		}
 	
-		// Function from authentication service to register user
-		this.authService.registerUser(user).subscribe(data => {
-			// Resposne from registration attempt
+		// Function from authentification service to register user
+		this.authService.registerUser(userObj).subscribe(data => {
+			window.scrollTo(0, 0); //Scroll to the top
+			// Response from registration attempt
 			if (!data.success) {
 				this.messageClass = 'alert alert-danger'; // Set an error class
 				this.message = data.message; // Set an error message
@@ -188,9 +195,9 @@ export class FormInscriptionComponent implements OnInit {
 				this.enableForm(); // Re-enable form
 			} else {
 				this.messageClass = 'alert alert-success'; // Set a success class
-				this.message = data.message; // Set a success message and scroll to it
-				window.scrollTo(0, 0);
-				// After 2 second timeout, navigate to the login page
+				this.message = data.message; // Set a success message
+				
+				// After 2 seconds timeout, navigate to the login page
 				setTimeout(() => {
 					this.router.navigate(['/authentification']); // Redirect to login view
 				}, 2000);
@@ -200,35 +207,5 @@ export class FormInscriptionComponent implements OnInit {
 
 	capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
-	}
-	  
-	// Function to check if e-mail is taken
-  	checkEmail() {
-		// Function from authentication file to check if e-mail is taken
-		this.authService.checkEmail(this.myform.get('email').value).subscribe(data => {
-			// Check if success true or false was returned from API
-			if (!data.success) {
-				this.emailValid = false; // Return email as invalid
-				this.emailMessage = data.message; // Return error message
-			} else {
-				this.emailValid = true; // Return email as valid
-				this.emailMessage = data.message; // Return success message
-			}
-		});
-  	}
-
-  	// Function to check if username is available
-  	checkUsername() {
-		// Function from authentication file to check if username is taken
-		this.authService.checkUsername(this.myform.get('username').value).subscribe(data => {
-			// Check if success true or success false was returned from API
-			if (!data.success) {
-				this.usernameValid = false; // Return username as invalid
-				this.usernameMessage = data.message; // Return error message
-			} else {
-				this.usernameValid = true; // Return username as valid
-				this.usernameMessage = data.message; // Return success message
-			}
-		});
 	}
 }

@@ -3,10 +3,11 @@ import { Group } from './group';
 import { Grade } from './grade';
 
 export interface User {
-    id: number;
-	location: Location;
-	group: Group;
-	grade: Grade;
+    id: String;
+	province: String;
+	town: String;
+	group: String;
+	grade: String;
 	email: String;
 	password: String;
 	gender: String;
@@ -14,12 +15,11 @@ export interface User {
 	lastName: String;
 	registrationDate: String;
 	lastConnection: String;
-	isConnected: boolean;
 	profilPicture: String;
 	description: String;
-	changePassword: boolean;
-	lockout: boolean;
-	attempts: number;
+	changePassword: Boolean;
+	lockout: Boolean;
+	attempts: Number;
 	birthDate: String;
 	promotion: String;
 }

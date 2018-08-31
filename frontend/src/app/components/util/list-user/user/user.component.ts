@@ -10,19 +10,34 @@ import { User } from '../../../../models/user';
 })
 export class UserComponent implements OnInit {
 
+	data;
 	user: User;
-	requestedId: number;
+	requestedUrl: String;
+	messageClass;
+	message;
 	
 	constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
-		this.requestedId = this.activatedRoute.snapshot.params['id'];
-		this.user = this.userService.getUserById(this.requestedId);
-		
-		//Redirecion si le post n'a pu être trouvé.
-		if (this.user == undefined)
-			this.router.navigate(['/pageIntrouvee']);
+		this.user = { 
+			id: '1', town: '', province: '', group: '', grade: '', email: '', password: '', gender: 'male', firstName: '',
+			lastName: '', registrationDate: '', lastConnection: '',  profilPicture: '',
+			description: '', changePassword: false, lockout: false, attempts: 0, birthDate: '', promotion: ''
+		}
 	}
 
 	ngOnInit() {
+		this.requestedUrl = this.activatedRoute.snapshot.params['id'];
+		this.userService.getUserProfile(this.requestedUrl).subscribe(data => {
+			// Check if user was found in database
+			if (!data.success) {
+				/*DEBBUGAGE*/
+				/*this.messageClass = 'alert alert-danger';
+				this.message = data.message; */
+				this.router.navigate(['/pageIntrouvee']); // Navigate to error page
+			} else {
+				// Save the user for use in HTML
+				this.user.id = data.user._id;
+				this.user = data.user;
+			}
+		});
 	}
-
 }

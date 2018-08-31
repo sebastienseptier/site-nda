@@ -1,11 +1,15 @@
 import { Injectable, group } from '@angular/core';
 import { User } from '../models/user';
+import { AuthService } from './auth.service';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class UserService {
 
+	options;
+	domain = this.authService.domain;
 	//Données temporaires, permet de tester l'utilisation des données.
-	users = [
+	users = [/*
 		{ 	id: 1,
 			location: { id: 1, town: 'Lille', province: 'Nord', country: 'France'},
 			group: { id: 1, groupName: 'Promotion-2013', groupDescription: 'Les anciens de 2013!', nbMembers: 25},
@@ -205,20 +209,30 @@ export class UserService {
 			attempts: 1,
 			birthDate: '1992-09-08',
 			promotion: '2013'
-		}
+		}*/
 	];
 
-	constructor() { }
+	constructor(private http: Http, private authService: AuthService) { }
 
-	getUserList():User[] {
-    	return this.users;
+	// Function to create headers, add token, to be used in HTTP requests
+	createAuthentificationHeaders() {
+		this.authService.loadToken(); // Get token so it can be attached to headers
+		// Headers configuration options
+		this.options = new RequestOptions({
+		  headers: new Headers({
+			'Content-Type': 'application/json', // Format set to JSON
+			'authorization': this.authService.authToken // Attach token
+		  })
+		});
 	}
 
-	getUserById(userId: number):User {
-		const user = this.users.find(
-			(p) => {
-				return p.id == userId;
-		});	
-		return user;
+	getUserList():User[] {
+		return this.users;
+	}
+
+	// Function to get user profile data
+	getUserProfile(id) {
+		this.createAuthentificationHeaders(); // Create headers
+		return this.http.get(this.domain + 'authentification/profile/' + id, this.options).map(res => res.json());
 	}
 }

@@ -15,8 +15,8 @@ export class AuthGuardService implements CanActivate {
 		if (this.authService.isLoggedIn()) {
 			return true; // Return true: User is allowed to view route
 		} else {
-			this.redirectUrl = state.url; // Grab previous urul
-			this.router.navigate(['/login']); // Return error and route to login page
+			this.redirectUrl = state.url; // Grab previous url
+			this.router.navigate(['/authentification']); // Return error and route to login page
 			return false; // Return false: user not authorized to view page
 		}
 	}

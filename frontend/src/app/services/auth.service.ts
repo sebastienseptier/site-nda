@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AuthService {
@@ -10,10 +11,14 @@ export class AuthService {
 	user;
 	options;
 
+	// Observable for navbar data refresh
+	private dataUserSource = new Subject<any>();
+	dataString$ = this.dataUserSource.asObservable();
+
 	constructor(private http: Http) {}
 
 	// Function to create headers, add token, to be used in HTTP requests
-	createAuthenticationHeaders() {
+	createAuthentificationHeaders() {
 		this.loadToken(); // Get token so it can be attached to headers
 		// Headers configuration options
 		this.options = new RequestOptions({
@@ -22,6 +27,11 @@ export class AuthService {
 				'authorization': this.authToken // Attach token
 			})
 		});
+	}
+
+	// Observable data updater
+	insertData(data: any) {
+		this.dataUserSource.next(data)
 	}
 
 	// Function to get token from client local storage
@@ -34,11 +44,6 @@ export class AuthService {
 		return this.http.post(this.domain + 'authentification/register', user).map(res => res.json());
 	}
 
-	// Function to check if username is taken
-	checkUsername(username) {
-		return this.http.get(this.domain + 'authentification/checkUsername' + username).map(res => res.json());
-	}
-
 	// Function to check if e-mail is taken
 	checkEmail(email) {
 		return this.http.get(this.domain + 'authentification/checkEmail' + email).map(res => res.json());
@@ -46,6 +51,7 @@ export class AuthService {
 
 	// Function to login user
 	login(user) {
+		this.insertData(user);
 		return this.http.post(this.domain + 'authentification/login', user).map(res => res.json());
 	}
 
@@ -62,18 +68,7 @@ export class AuthService {
 		localStorage.setItem('user', JSON.stringify(user)); // Set user in local storage as string
 		this.authToken = token; // Assign token to be used elsewhere
 		this.user = user; // Set user to be used elsewhere
-	}
-
-	// Function to get user's profile data
-	getProfile() {
-		this.createAuthenticationHeaders(); // Create headers before sending to API
-		return this.http.get(this.domain + 'authentification/profile', this.options).map(res => res.json());
-	}
-
-	// Function to get public profile data
-	getPublicProfile(username) {
-		this.createAuthenticationHeaders(); // Create headers before sending to API
-		return this.http.get(this.domain + 'authentification/publicProfile/' + username, this.options).map(res => res.json());
+		this.insertData(user);
 	}
 
 	// Function to check if user is logged in
