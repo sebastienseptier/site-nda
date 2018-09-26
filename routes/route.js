@@ -1,12 +1,11 @@
-/**
-* User schema import.
-*/
-const User = require('../models/user'); // Import User Model Schema
+var express = require('express');
+var router = express.Router();
+var mongoose = require('mongoose');
+const User = require('../models/User'); // Import User Model Schema
 
 module.exports = (router) => {
-    /**
-    * Routes definition.
-    */
+        
+   /* GET ALL USERS */
     router.get('/users', (req, res)=>{
         User.find((err, users)=>{
             if (err){
@@ -18,9 +17,10 @@ module.exports = (router) => {
         });
     });
 
-    router.post('/user', (req, res)=>{
+    /* CREATE NEW USER */
+   /* router.post('/user', (req, res)=>{
         let newUser = new User({
-            userName: req.body.userName,
+            firstName: req.body.firstName,
             userPassword: req.body.userPassword
         });
         newUser.save((err)=>{
@@ -31,7 +31,17 @@ module.exports = (router) => {
                 res.json({msg: 'Utilisateur ajouté.'});
             }
         });
-    });
+    });*/
+    router.post('/', function (req, res, next) {
+        User.create(req.body, function (err, post) {
+          console.log("post : ", post);
+          if (err) {
+            console.log('post error :', err);
+            return next(err);
+          }
+          res.json(post);
+        });
+      });
 
     router.put('/user/:id', (req, res)=>{
         User.findOneAndUpdate(
@@ -67,4 +77,5 @@ module.exports = (router) => {
     });
 
     return router;
+   // module.exports = router;
 }

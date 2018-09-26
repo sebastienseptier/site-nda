@@ -1,38 +1,52 @@
-<form novalidate [formGroup]="myform" class="col-md-6">
-	<div class="form-group">
+<form novalidate [formGroup]="myform" (ngSubmit)="onFormSubmit(myform.value)" class="col-md-6">
+	<div class="form-group" id='gender-form'>
+		<div class="custom-control custom-radio">
+			<input id="other-input" name="gender" class="custom-control-input" type="radio" formControlName="gender" value="other" required>
+			<label class="custom-control-label" for="other-input">Autre</label>
+		</div>
+		<div class="custom-control custom-radio">
+			<input id="female-input" name="gender" class="custom-control-input" type="radio" formControlName="gender" value="female"
+			 required>
+			<label class="custom-control-label" for="female-input">Femme</label>
+		</div>
 		<div class="custom-control custom-radio">
 			<input id="male-input" name="gender" class="custom-control-input" type="radio" formControlName="gender" value="male" required>
-			<label class="custom-control-label" for="male-input">M.</label>
-		</div>
-		<div class="custom-control custom-radio">
-			<input id="female-input" name="gender" class="custom-control-input" type="radio" formControlName="gender" value="female" required>
-			<label class="custom-control-label" for="female-input">Mme.</label>
+			<label class="custom-control-label" for="male-input">Homme</label>
 		</div>
 	</div>
-  	<fieldset formGroupName="name">
+	<fieldset formGroupName="name">
 		<div class="form-group">
 			<label>Prénom</label>
-			<input [ngClass]="{
+			<input id="inputFirstName" [ngClass]="{
 			'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched),
-			'is-valid': firstName.valid && (firstName.dirty || firstName.touched)}" placeholder="Prénom" type="text" class="form-control" formControlName="firstName" required>
+			'is-valid': firstName.valid && (firstName.dirty || firstName.touched)}" placeholder="Prénom" type="text" class="form-control"
+			 formControlName="firstName" required>
 			<div class="form-control-feedback invalid-feedback" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
-				<p *ngIf="firstName.errors.required">Le champs Prénom est requis</p>
+				<p *ngIf="firstName.errors.required">Le champs prénom est requis</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Nom de famille</label>
+			<input id="inputLastName" [ngClass]="{
+			'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched),
+			'is-valid': lastName.valid && (lastName.dirty || lastName.touched)}" placeholder="Nom de famille" type="text" class="form-control"
+			 formControlName="lastName" required>
+			<div class="form-control-feedback invalid-feedback" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+				<p *ngIf="lastName.errors.required">Le champs nom de famille est requis</p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label>Nom de naissance</label>
-			<input id="inputLastName" [ngClass]="{
-			'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched),
-			'is-valid': lastName.valid && (lastName.dirty || lastName.touched)}" placeholder="Nom" type="text"
-					class="form-control"
-					formControlName="lastName"
-					required>
-			<div class="form-control-feedback invalid-feedback" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
-				<p *ngIf="lastName.errors.required">Le champs Nom est requis</p>
+			<input id="inputBirthName" [ngClass]="{
+			'is-invalid': birthName.invalid && (birthName.dirty || birthName.touched),
+			'is-valid': birthName.valid && (birthName.dirty || birthName.touched)}" placeholder="Nom de naissance" type="text" class="form-control"
+			 formControlName="birthName" required>
+			<div class="form-control-feedback invalid-feedback" *ngIf="birthName.errors && (birthName.dirty || birthName.touched)">
+				<p *ngIf="birthName.errors.required">Le champs nom de naissance est requis</p>
 			</div>
 		</div>
-	  </fieldset>
-	  <div class="form-group">
+	</fieldset>
+	<div class="form-group" id='departement_form'>
 		<label for="inputState">Département</label>
 		<!--TODO:Remplir le bouton des villes en fonction de la région sélectionnée-->
 		<select #select formControlName="province" id="inputState" class="form-control" [ngClass]="{
@@ -45,7 +59,7 @@
 			<p *ngIf="province.errors.required">Le champs département est requis</p>
 		</div>
 	</div>
-	<div class="form-group">
+	<div class="form-group" id='town_form'>
 		<label for="inputCity">Ville</label>
 		<select #select formControlName="town" id="inputCity" class="form-control" [ngClass]="{
 			'is-invalid': town.invalid && (town.dirty || town.touched),
@@ -57,7 +71,7 @@
 			<p *ngIf="town.errors.required">Le champs ville est requis</p>
 		</div>
 	</div>
-	<div class="form-group">
+	<div class="form-group" id='birthday_form'>
 		<label for="inputBirthDate">Date de naissance</label>
 		<input type="date" formControlName="birthDate" class="form-control" id="inputBirthDate" placeholder="jj/mm/aaaa" [ngClass]="{
 			'is-invalid': birthDate.invalid && (birthDate.dirty || birthDate.touched),
@@ -66,7 +80,7 @@
 			<p *ngIf="birthDate.errors.required">Le champs Date de naissance est requis</p>
 		</div>
 	</div>
-	<div class="form-group">
+	<div class="form-group" id='prom_form'>
 		<label for="promotionSelect">Promotion</label>
 		<select #select formControlName="promotion" class="form-control" id="promotionSelect" [ngClass]="{
 			'is-invalid': promotion.invalid && (promotion.dirty || promotion.touched),
@@ -79,40 +93,38 @@
 			<p *ngIf="promotion.errors.required">Le champs Promotion est requis</p>
 		</div>
 	</div>
-	<div class="form-group">
+	<div class="form-group" id='email_form'>
 		<label>Adresse email</label>
 		<input [ngClass]="{
 			'is-invalid': email.invalid && (email.dirty || email.touched),
-			'is-valid': email.valid && (email.dirty || email.touched)}" placeholder="email" type="email"
-			class="form-control"
-			formControlName="email"
-			required>
+			'is-valid': email.valid && (email.dirty || email.touched)}" placeholder="email" type="email" class="form-control" formControlName="email"
+		 required>
 		<div class="form-control-feedback invalid-feedback" *ngIf="email.errors && (email.dirty || email.touched)">
 			<p *ngIf="email.errors.required">Le champ Adresse email est requis</p>
 			<p *ngIf="password.errors.pattern">L'adresse email n'est pas conforme</p>
 		</div>
 	</div>
-	<div class="form-group">
+	<div class="form-group" id='password_form'>
 		<label>Mot de passe</label>
 		<input [ngClass]="{
 			'is-invalid': password.invalid && (password.dirty || password.touched),
-			'is-valid': password.valid && (password.dirty || password.touched)}" placeholder="Mot de passe" type="password"
-			class="form-control"
-			formControlName="password"
-			required>
+			'is-valid': password.valid && (password.dirty || password.touched)}" placeholder="Mot de passe" type="password" class="form-control"
+		 formControlName="password" required>
 		<div class="form-control-feedback invalid-feedback" *ngIf="password.errors && (password.dirty || password.touched)">
 			<p *ngIf="password.errors.required">Le champs Mode de passe est requis</p>
-			<p *ngIf="password.errors.minlength">Le mot de passe doit contenir au moins 1 majuscule, 1 minuscule, 1 chiffre, et doit avoir au moins 8 caractères, il en manque {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}}.</p>
+			<p *ngIf="password.errors.minlength">Le mot de passe doit contenir au moins 1 majuscule, 1 minuscule, 1 chiffre, et doit
+				avoir au moins 8 caractères, il en manque {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}}.</p>
 		</div>
 	</div>
-	<div class="form-group custom-control custom-checkbox mb-3">
+	<div class="form-group custom-control custom-checkbox mb-3" id='checkterm_form'>
 		<input [ngClass]="{
 			'is-invalid': checkTherms.invalid && (checkTherms.dirty || checkTherms.touched),
-			'is-valid': checkTherms.valid && (checkTherms.dirty || checkTherms.touched)}" type="checkbox" class="custom-control-input" id="checkTherms" formControlName="checkTherms" required>
+			'is-valid': checkTherms.valid && (checkTherms.dirty || checkTherms.touched)}" type="checkbox" class="custom-control-input"
+		 id="checkTherms" formControlName="checkTherms" required>
 		<label class="custom-control-label" for="checkTherms">J'accepte les <a routerLink="/mentions-legales">conditions d'utilisation</a></label>
 		<div class="invalid-feedback">Vous devez approuver les conditions d'utilisation du site pour continuer</div>
 	</div>
 	<br>
-	<button type="submit" class="btn btn-primary">Valider</button>
-  	<pre>{{myform.value | json}}</pre>
+	<button type="submit" [disabled]="!myform.valid" mat-raised-button class="btn btn-primary" color="primary">Valider</button>
+	<pre>{{myform.value | json}}</pre>
 </form>

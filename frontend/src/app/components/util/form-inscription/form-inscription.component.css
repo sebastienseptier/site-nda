@@ -1,3 +1,9 @@
+#inputFirstName {
+    text-transform: capitalize;
+}
 #inputLastName {
+    text-transform: uppercase;
+}
+#inputBirthName {
     text-transform: uppercase;
 }
