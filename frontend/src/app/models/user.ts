@@ -10,8 +10,10 @@ export interface User {
 	email: String;
 	password: String;
 	gender: String;
-	name: String;
-	surname: String;
+	/*lastName: String;
+	surName: String;
+	birthName:String;*/
+	name:any;
 	registrationDate: String;
 	lastConnection: String;
 	isConnected: boolean;

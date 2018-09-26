@@ -24,13 +24,19 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    userName: {
-        type: String,
-        required: true
-    },
-    surname: {
-        type: String,
-        required: true
+    name:{
+        lastName: {
+            type: String,
+            required: true
+        },
+        surname: {
+            type: String,
+            required: true
+        },
+        birthname: {
+            type: String,
+            required: true
+        }
     },
     registrationDate: {
         type: String,
