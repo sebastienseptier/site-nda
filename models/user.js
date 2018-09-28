@@ -42,12 +42,12 @@ const UserSchema = mongoose.Schema({
         }
     },
     registrationDate: {
-        type: String,
-        required: true
+        type: Date,
+        default: Date.now
     },
     lastConnection: {
-        type: String,
-        required: true
+        type: Date,
+        default: Date.now
     },
     isConnected: {
         type: Boolean,
@@ -83,4 +83,4 @@ const UserSchema = mongoose.Schema({
     }
 });
 
-const User = module.exports = mongoose.model('User', UserSchema);
+/*const User = */module.exports = mongoose.model('User', UserSchema);
