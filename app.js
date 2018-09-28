@@ -9,7 +9,7 @@ var router = express.Router(); // Creates a new router object.
 
 const cors = require('cors'); // CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 
-const routes = require('./routes/route')(router); // Import Routes
+const apiRouter = require('./routes/route')(router); // Import Routes
 
 const PORT = process.env.PORT || 8080; // Allows heroku to set port.
 
@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/frontend/dist/reseau-nda')));
 app.use('/', express.static(path.join(__dirname, '/frontend/dist/reseau-nda')));
-app.use('/api', routes); // Use User routes in application.
+app.use('/api', apiRouter); // Use User routes in application.
 /*
 // Connect server to Angular project.
 app.get('*', (req, res) => {
@@ -51,7 +51,8 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   //console.log(err);
   // render the error page
-  res.status(err.status || 500);
+  // res.status(err.status || 500);
+  res.status(err.status >= 100 && err.status < 600 ? err.status : 500);
   res.sendStatus(err.status);
 });
 

@@ -24,22 +24,26 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    name:{
+    name: {
         firstName: {
             type: String,
-            capitalize:true,
+            capitalize: true,
             required: true
         },
         lastName: {
             type: String,
-            uppercase:true,
+            uppercase: true,
             required: true
         },
-        birthname: {
+        birthName: {
             type: String,
-            uppercase:true,
+            uppercase: true,
             required: true
         }
+    },
+    birthday: {
+        type: Date,
+        required: true
     },
     registrationDate: {
         type: Date,
@@ -61,7 +65,7 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    gender:{
+    gender: {
         type: String,
         required: true
     },

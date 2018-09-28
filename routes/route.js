@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+//var router = express.Router();
 var mongoose = require('mongoose');
 const User = require('../models/User'); // Import User Model Schema
 
@@ -7,43 +7,45 @@ module.exports = (router) => {
 
     /* GET ALL USERS */
     router.get('/', function (req, res, next) {
+        console.trace("get route / ");
         User.find(function (err, products) {
-          if (err) return next(err);
-          res.json(products);
+            if (err) return next(err);
+            res.json(products);
         });
-      });
-    
-      /* GET SINGLE User BY ID */
-      router.get('/:id', function (req, res, next) {
+    });
+
+    /* GET SINGLE User BY ID */
+    router.get('/:id', function (req, res, next) {
         User.findById(req.params.id, function (err, post) {
-          if (err) return next(err);
-          res.json(post);
+            if (err) return next(err);
+            res.json(post);
         });
-      });
-    
-      /* SAVE User */
-      router.post('/', function (req, res, next) {
+    });
+
+    /* SAVE User */
+    router.post('/', function (req, res, next) {
         User.create(req.body, function (err, post) {
-          if (err) return next(err);
-          res.json(post);
+            console.log("post err : " + err);
+            if (err) return next(err);
+            res.json(post);
         });
-      });
-    
-      /* UPDATE User */
-      router.put('/:id', function (req, res, next) {
+    });
+
+    /* UPDATE User */
+    router.put('/:id', function (req, res, next) {
         User.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
-          if (err) return next(err);
-          res.json(post);
+            if (err) return next(err);
+            res.json(post);
         });
-      });
-    
-      /* DELETE User */
-      router.delete('/:id', function (req, res, next) {
+    });
+
+    /* DELETE User */
+    router.delete('/:id', function (req, res, next) {
         User.findByIdAndRemove(req.params.id, req.body, function (err, post) {
-          if (err) return next(err);
-          res.json(post);
+            if (err) return next(err);
+            res.json(post);
         });
-      });
+    });
     /*router.get('/users', (req, res) => {
         User.find((err, users) => {
             if (err) {
